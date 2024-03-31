@@ -1,5 +1,3 @@
-//This file defines the navbar component and elements within it. It provides the layout for them and styling
-
 //Importing this to use styled components
 import styled from "styled-components";
 
@@ -8,6 +6,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   height: 60px;
   overflow: hidden;
+  background-color: #113869;
 
   @media only screen and (max-width: 480px) {
     height: auto;
@@ -20,7 +19,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #113869;
+  background-color: transparent;
 `;
 
 // *** Placed inside WRAPPER component *** Wrapping the elements on the left under this div element container and specifying its styling
@@ -29,7 +28,7 @@ export const Left = styled.div`
   align-items: center;
   flex: 1;
   justify-content: flex-start;
-  background-color: #113869;
+  background-color: transparent;
 `;
 
 // ***Placed Inside LEFT component *** Specifying style properties for the search box
@@ -82,7 +81,7 @@ export const CrossWrapper = styled.div`
 export const Center = styled.div`
   flex: 1;
   text-align: center;
-  background-color: #113869;
+  background-color: transparent;
 `;
 
 // This is the wrapper for the Company Name at the end of the Side Menu
@@ -109,7 +108,7 @@ export const Right = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #113869;
+  background-color: transparent;
   @media only screen and (max-width: 480px) {
     justify-content: flex-end;
   }
@@ -118,7 +117,7 @@ export const Right = styled.div`
 export const NavbarOptions = styled.div`
   cursor: pointer;
   font-size: 20px;
-  background-color: #113869;
+  background-color: transparent;
 `;
 
 interface NavBarLinkProps {

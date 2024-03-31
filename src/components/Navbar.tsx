@@ -30,7 +30,7 @@ import {
   SideMenuHeadingWrapper,
   SideMenuWrapper,
   Wrapper,
-} from "./Styling/NavbarStyles";
+} from "./Styling/Navbar/NavbarStyles";
 // This is the top most level container for the navbar
 
 // This is the main functional component which is returned in the end

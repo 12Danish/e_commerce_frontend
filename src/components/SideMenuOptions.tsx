@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { categoriesInfo } from "../assets/data";
-import { EachRow,Container,OptionsWrapper,Links } from "./Styling/SideMenuOptionsStyles";
+import { EachRow,Container,OptionsWrapper,Links } from "./Styling/Navbar/SideMenuOptionsStyles";
 
 const SideMenuOptions = () => {
   return (

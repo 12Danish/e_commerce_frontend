@@ -65,6 +65,7 @@ export const Button = styled.button<ButtonProps>`
   transition: all 0.5s ease;
   &:hover {
     transform: scale(1.1);
+    cursor: pointer;
   }
 `;
 

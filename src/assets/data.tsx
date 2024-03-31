@@ -1,30 +1,24 @@
 export const sliderInfo = [
   {
-    id: 1,
-    title: "Redefining The Profession.",
-    desc: "Creating a network between suppliers and consumers in the construction niche.",
-    bg: "#e2eef3",
-    button_name: "Browse Products",
-    img: "src/assets/images/construction_worker.jpg",
-    h1Color: "black",
+    key: 1,
+    title: "AIR JORDAN",
+    desc: "Experience comfort unlike before",
+    button_name: "Browse Items",
+    img: "src/assets/images/TopSliderImages/slide_shoe.png",
   },
   {
-    id: 2,
-    title: "SALE !!!!",
-    desc: "Upto 20% Off On Selected Products",
-    bg: "#fde6e6",
-    button_name: "Browse Sale Items",
-    img: "src/assets/images/sale.jpg",
-    h1Color: "red",
+    key: 2,
+    title: "Explore New Fits.",
+    button_name: "Browse Items",
+    img: "src/assets/images/TopSliderImages/slide_image_2.png",
   },
+  
   {
-    id: 3,
-    title: "Prefer To Buy In Person?",
-    desc: "We've got you covered. Click here to locate vendors near you.",
-    bg: "#e2eef3",
-    button_name: "Locate Vendors",
-    img: "src/assets/images/In_person.jpg",
-    h1Color: "black",
+    key: 3,
+    title1: "See What's",
+    title2: "Trending",
+    button_name: "Browse Items",
+    img3: "src/assets/images/TopSliderImages/slide_image_3.png"
   },
 ];
 
@@ -207,7 +201,8 @@ export const reviewsData = [
     name: "Talha Sattar",
     stars: 5,
     review: "Excellent Quality and service. will surely shop again.",
-  }, {
+  },
+  {
     id: 1,
     name: "Raza Ahmed",
     stars: 5,
@@ -247,7 +242,7 @@ export const cartItems = [
     title: "Hammer",
     price: 5000,
     quantity: 2,
-    totalprice : 10000,
+    totalprice: 10000,
   },
   {
     id: 2,
@@ -255,7 +250,7 @@ export const cartItems = [
     title: "Hammer",
     price: 5000,
     quantity: 1,
-    totalprice : 5000,
+    totalprice: 5000,
   },
   {
     id: 3,
@@ -263,8 +258,6 @@ export const cartItems = [
     title: "Hammer",
     price: 5000,
     quantity: 3,
-    totalprice : 15000,
+    totalprice: 15000,
   },
-  
-  
 ];

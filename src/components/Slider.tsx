@@ -1,4 +1,3 @@
-import { useState } from "react";
 // Importing left arrow Image fromn mui
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 // Importing right arrow image from mui
@@ -8,16 +7,33 @@ import { sliderInfo } from "../assets/data";
 //Importing button from shared styled styled elements
 import { Button } from "./Styling/SharedStyledElementsStyles";
 import {
-  Arrow,
-  Container,
-  Desc,
-  Image,
-  ImageWrapper,
-  InfoWrapper,
-  Slide,
-  Title,
-  Wrapper,
-} from "./Styling/SliderStyles";
+  Slide1,
+  Slide1Desc,
+  Slide1Image,
+  Slide1ImageWrapper,
+  Slide1InfoWrapper,
+  Slide1Title,
+} from "./Styling/Slider/Slide1Styles";
+import {
+  Slide2,
+  Slide2ButtonWrapper,
+  Slide2Image,
+  Slide2ImageWrapper,
+  Slide2Rectangle,
+  Slide2Title,
+} from "./Styling/Slider/Slide2Styles";
+import {
+  Slide3,
+  Slide3ButtonWrapper,
+  Slide3Image,
+  Slide3ImageWrapper,
+  Slide3Title1,
+  Slide3Title2
+} from "./Styling/Slider/Slide3Styles";
+import { Arrow } from "./Styling/Slider/SliderArrowStyles";
+import { Container, Wrapper } from "./Styling/Slider/SliderStyles";
+
+import useSlideMovement from "./SliderMovement";
 // This container is the top most level element
 // This is the main component which is returned
 const Slider = () => {
@@ -28,72 +44,90 @@ const Slider = () => {
       {/* This component contains the left arrow and I need to remove hard coding here */}
       <Arrow direction="left" onClick={() => handleClick("left", 3)}>
         {/* This is being imported from mui */}
-        <ArrowBackIosIcon sx={{ color: "#f8f8ff", fontSize: 30 }} />
+        <ArrowBackIosIcon
+          sx={{ color: "#f8f8ff", fontSize: 30, bgcolor: "transparent" }}
+        />
       </Arrow>
       {/* This wrapper wraps around all of the slides */}
       <Wrapper slideindex={sliderIndex}>
-        {sliderInfo.map((item) => (
-          <Slide key={item.id} bgcolor={item.bg}>
-            {/* This wraps around the image*/}
-            <ImageWrapper>
-              {/* Linking the image over here  */}
-              <Image src={item.img} />
-            </ImageWrapper>
-            {/* This wraps around all of the info*/}
-            <InfoWrapper>
-              <Title color={item.h1Color}>{item.title}</Title>
-              <Desc>{item.desc}</Desc>
-              <Button
-                bgcolor="#191970"
-                fontcolor="white"
-                bordercolor="white"
-                width="auto"
-              >
-                {item.button_name}
-              </Button>
-            </InfoWrapper>
-          </Slide>
-        ))}
+        {sliderInfo.map(
+          (item) =>
+            (item.key == 1 && (
+              <Slide1 key={item.id}>
+                {/* This wraps around the image*/}
+                <Slide1ImageWrapper>
+                  {/* Linking the image over here  */}
+                  <Slide1Image src={item.img} />
+                </Slide1ImageWrapper>
+                {/* This wraps around all of the info*/}
+                <Slide1Title color={item.h1Color}>{item.title}</Slide1Title>
+
+                <Slide1InfoWrapper>
+                  <Slide1Desc>{item.desc}</Slide1Desc>
+                  <Button
+                    bgcolor="#113869"
+                    fontcolor="white"
+                    bordercolor="white"
+                    width="auto"
+                  >
+                    {item.button_name}
+                  </Button>
+                </Slide1InfoWrapper>
+              </Slide1>
+            )) ||
+            (item.key == 2 && (
+              <Slide2 key={item.id}>
+                {/* This wraps around the image*/}
+                <Slide2ImageWrapper>
+                  {/* Linking the image over here  */}
+                  <Slide2Image src={item.img} />
+                </Slide2ImageWrapper>
+                {/* This wraps around all of the info*/}
+                <Slide2Rectangle />
+                <Slide2Title>{item.title}</Slide2Title>
+                <Slide2ButtonWrapper>
+                  <Button
+                    bgcolor="black"
+                    fontcolor="#fdd835"
+                    bordercolor="white"
+                    width="auto"
+                  >
+                    {item.button_name}
+                  </Button>
+                </Slide2ButtonWrapper>
+              </Slide2>
+            )) ||
+            (item.key == 3 && (
+              <Slide3 key={item.id}>
+                {/* This wraps around the image*/}
+                <Slide3ImageWrapper>
+                  <Slide3Image src={item.img3} />
+                </Slide3ImageWrapper>
+                <Slide3Title1>{item.title1}</Slide3Title1>
+                <Slide3Title2>{item.title2}</Slide3Title2>
+                {/* This wraps around all of the info*/}
+                <Slide3ButtonWrapper>
+                  <Button
+                    bgcolor="pink"
+                    fontcolor="black"
+                    bordercolor="white"
+                    width="auto"
+                  >
+                    {item.button_name}
+                  </Button>
+                </Slide3ButtonWrapper>
+              </Slide3>
+            ))
+        )}
       </Wrapper>
       {/* This wraps around the right arrow  */}
       <Arrow direction="right" onClick={() => handleClick("right", 3)}>
-        <ArrowForwardIosIcon sx={{ color: "#f8f8ff", fontSize: 30 }} />
+        <ArrowForwardIosIcon
+          sx={{ color: "#f8f8ff", fontSize: 30, bgcolor: "transparent" }}
+        />
       </Arrow>
     </Container>
   );
 };
-
-// This function handles the state and the logic for the slide movement
-function useSlideMovement() {
-  const [sliderIndex, setSliderIndex] = useState(0);
-  // This function takes the direction(left or right) as argument and sets the value of slider index accordingly
-  const handleClick = (direction: string, maxSlides: number) => {
-    // Starting the counter from zero
-    maxSlides -= 1;
-    // This runs when the user clicks the left arrow
-    if (direction === "left") {
-      // Checking if slider index is 0 then moving to last slide
-      if (sliderIndex > 0) {
-        setSliderIndex(sliderIndex - 1);
-      }
-      // Moving to the previous slide by changing sliderIndex value
-      else {
-        setSliderIndex(maxSlides);
-      }
-    }
-    // This runs when the user clicks the right arrow
-    else if (direction === "right") {
-      // Checking if the user is on the last slide if so taking him back to the first slide
-      if (sliderIndex === maxSlides) {
-        setSliderIndex(0);
-      }
-      // Taking user to the next slide
-      else {
-        setSliderIndex(sliderIndex + 1);
-      }
-    }
-  };
-  return { sliderIndex, handleClick };
-}
 
 export default Slider;
