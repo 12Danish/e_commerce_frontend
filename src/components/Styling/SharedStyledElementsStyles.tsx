@@ -33,13 +33,13 @@ export const Icon = styled.div`
   height: 40px;
   display: flex;
   align-items: center;
-  border-radius :50%;
+  border-radius: 50%;
   justify-content: center;
   background-color: #113869;
   cursor: pointer;
   transition: all 0.5s ease;
   &:hover {
-    background-color:#0a213d;
+    background-color: #0a213d;
     transform: scale(1.1);
   }
 `;
@@ -116,4 +116,28 @@ export const Input = styled.input`
   padding: 20px;
   margin: 20px 20px 0px 0px;
   font-weight: 700;
+`;
+
+export const blueGradientColors = `
+linear-gradient(
+  91.02deg,
+  #4280cf 7.23%,
+  #3975c0 14.99%,
+  #0c315f 50.29%,
+  #0a2444 63.22%,
+  #03234b 85.09%,
+  #4280cf 102.7%
+)`;
+
+export const ProductSliderTitle = styled.h1`
+  flex: 1;
+  max-height: 120px;
+  z-index: 2; /* Ensure a higher z-index to appear above other elements */
+  font-size: 50px;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  text-align: left;
+  background: ${blueGradientColors};
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 `;

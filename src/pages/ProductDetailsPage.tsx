@@ -1,9 +1,9 @@
-import Navbar from "../components/Navbar";
-import Announcements from "../components/Announcements";
-import Newsletter from "../components/Newsletter";
-import Footer from "../components/Footer";
 import { productDetail } from "../assets/data";
-import SingleProductDetails from "../components/SingleProductDetails";
+import Announcements from "../components/Announcements";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar_components/Navbar";
+import Newsletter from "../components/Newsletter";
+import SingleProductDetails from "../components/SingleProductDetails_components/SingleProductDetails";
 const ProductDetailsPage = () => {
   return (
     <div>

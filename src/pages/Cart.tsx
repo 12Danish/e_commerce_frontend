@@ -1,7 +1,7 @@
 import Announcements from "../components/Announcements";
-import Navbar from "../components/Navbar";
+import CartBody from "../components/Cart_components/CartBody";
 import Footer from "../components/Footer";
-import CartBody from "../components/CartBody";
+import Navbar from "../components/Navbar_components/Navbar";
 
 const Cart = () => {
   return (

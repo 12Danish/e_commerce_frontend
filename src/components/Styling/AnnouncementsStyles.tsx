@@ -3,7 +3,7 @@ import styled from "styled-components";
 // Defining properties of Div that will contain announcements
 export const Container = styled.div`
   height: 30px;
-  width: 100vw;
+  max-width: 1350px;
   color: #28282a;
   font-weight: 400;
   text-align: center;

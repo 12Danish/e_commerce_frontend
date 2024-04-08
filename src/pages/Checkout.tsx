@@ -1,8 +1,8 @@
 import Announcements from "../components/Announcements";
 
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import CheckoutForm from "../components/CheckoutForm";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar_components/Navbar";
 const Checkout = () => {
   return (
     <div>
