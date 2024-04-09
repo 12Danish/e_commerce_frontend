@@ -1,4 +1,4 @@
-export const sliderInfo = [
+export const topSliderInfo = [
   {
     key: 1,
     title: "AIR JORDAN",
@@ -12,16 +12,22 @@ export const sliderInfo = [
     button_name: "Browse Items",
     img: "src/assets/images/TopSliderImages/slide_image_2.png",
   },
-  
+
   {
     key: 3,
     title1: "See What's",
     title2: "Trending",
     button_name: "Browse Items",
-    img3: "src/assets/images/TopSliderImages/slide_image_3.png"
+    img3: "src/assets/images/TopSliderImages/slide_image_3.png",
   },
 ];
-
+export const SaleSliderInfo = {
+  key: 1,
+  title: "SALE",
+  desc: "Check Out Massive Discounts On Your Favourite Items",
+  button_name: "Browse Items",
+  img: "src/assets/images/SaleSliderImage/saleImage.png",
+};
 export const categoriesInfo = [
   {
     id: 1,
@@ -56,7 +62,7 @@ export const categoriesInfo = [
   {
     id: 7,
     img: "src/assets/images/blue-prints.jpg",
-    title: "hats",
+    title: "Hats",
   },
 
   {

@@ -3,11 +3,11 @@ import styled from "styled-components";
 // The top most level wrapper
 export const Container = styled.div`
   background-color: transparent;
-  height: 300px;
-  width: 500px;
+  height: 400px;
+  width: 370px;
   border-radius: 20px;
   margin-right: 10px;
-  
+
   position: relative;
   @media only screen and (max-width: 480px) {
     height: 50%;
@@ -17,15 +17,19 @@ export const Container = styled.div`
   &:hover {
     cursor: pointer;
   }
+  &:hover {
+    cursor: pointer;
+    background-color: #f8f1f1;
+  }
+  transition: all 0.5s ease;
 `;
-
 
 // This wraps around the image to give its properties
 export const ImageWrapper = styled.div`
-  height: 280px;
-  background-color: ${(prop) => prop.color};
+  height: 80%;
+  background-color: transparent;
   overflow: hidden;
-  width: 100px;
+  width: 100%;
 `;
 // Defining the properties for the image
 export const Image = styled.img`
@@ -38,11 +42,10 @@ export const Image = styled.img`
 export const InfoWrapper = styled.div`
   position: absolute;
   background-color: transparent;
-  height: 100px;
-  width: 150px;
-  top: 0px;
+  height: 20%;
+  width: 100%;
+  bottom: 0px;
   overflow: hidden;
-  right: 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -65,13 +68,3 @@ export const Price = styled.div<priceProp>`
 export const Cta = styled.div`
   display: flex;
 `;
-interface Colors {
-  [key: string]: string;
-}
-
-export const bgColors: Colors = {
-  pink: "rgba(161, 3, 74, 0.5)",
-  lightBlue: "rgba(45, 95, 132, 1)",
-  lightGreen: "rgba(158, 208, 101, 1)",
-  darkBlue: "rgba(27, 79, 135, 1)",
-};

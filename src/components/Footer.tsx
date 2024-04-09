@@ -22,29 +22,35 @@ import {
   SocialContainer,
   SocialIcon,
   Title,
+  A,
 } from "./Styling/FooterStyles";
+
 const Footer = () => {
   return (
     <Container>
       {/* All the elements on the left */}
       <Left>
-        <BoldHeading fontcolor="black">Company Name.</BoldHeading>
+        <BoldHeading fontcolor="white" backgroundColor="transparent">
+          Company Name.
+        </BoldHeading>
 
         <Description>
-          This venture was founded by a couple of college undergrads in their
-          final year. We identified the gap within the market between suppliers
-          and consumers and formulated a digital solution for the problem. While
-          this is a beta verison of the project, it is only the start.
+          Welcome to our fashion-forward e-commerce platform! Explore a diverse
+          range of shoes, clothing, and accessories curated for style
+          enthusiasts like you. Discover the latest trends, enjoy secure
+          payments, and swift deliveries. Sellers can showcase their unique
+          creations, customize their storefronts, and benefit from our marketing
+          tools whereas buyers can enjoy a premium shopping experience
         </Description>
         {/* Both of the two icons are wrapped in this */}
         <SocialContainer>
           <SocialIcon color="#3b5998">
             {/* Importing the facebook Icon from mui */}
-            <FacebookIcon />
+            <FacebookIcon style={{ backgroundColor: "transparent" }} />
           </SocialIcon>
           <SocialIcon color="#E4405F">
             {/* Importing the Instgram Icon from mui */}
-            <InstagramIcon />
+            <InstagramIcon style={{ backgroundColor: "transparent" }} />
           </SocialIcon>
         </SocialContainer>
       </Left>
@@ -53,19 +59,19 @@ const Footer = () => {
         <Title>Useful Links</Title>
         <List>
           <ListItem>
-            <a>Home</a>
+            <A>Home</A>
           </ListItem>
           <ListItem>
-            <a>Sale Products</a>
+            <A>Sale Products</A>
           </ListItem>
           <ListItem>
-            <a>Cart</a>
+            <A>Cart</A>
           </ListItem>
           <ListItem>
-            <a>Services</a>
+            <A>Latest Products</A>
           </ListItem>
           <ListItem>
-            <a>Become a Seller</a>
+            <A>Become a Seller</A>
           </ListItem>
         </List>
       </Center>
@@ -75,17 +81,26 @@ const Footer = () => {
         <Title>Contact Us</Title>
         {/* Displaying the mapp */}
         <ContactItem>
-          <MapIcon fontSize="large" sx={{ marginRight: "10px" }} /> Office
-          Address
+          <MapIcon
+            fontSize="large"
+            sx={{ marginRight: "10px", backgroundColor: "transparent" }}
+          />{" "}
+          Office Address
         </ContactItem>
         {/* Displaying the phone */}
         <ContactItem>
-          <LocalPhoneIcon fontSize="large" sx={{ marginRight: "10px" }} />
+          <LocalPhoneIcon
+            fontSize="large"
+            sx={{ marginRight: "10px", backgroundColor: "transparent" }}
+          />
           XXXXXXXXXX
         </ContactItem>
         {/* Displaying the email */}
         <ContactItem>
-          <MailIcon fontSize="large" sx={{ marginRight: "10px" }} />
+          <MailIcon
+            fontSize="large"
+            sx={{ marginRight: "10px", backgroundColor: "transparent" }}
+          />
           company@gmail.com
         </ContactItem>
       </Right>

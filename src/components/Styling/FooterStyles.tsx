@@ -1,27 +1,33 @@
 import styled from "styled-components";
-
+import { blueGradientColors } from "./SharedStyledElementsStyles";
 // This is the top-most container
 export const Container = styled.div`
+  margin-top: 20px;
   display: flex;
   width: auto;
   height: auto;
+  background: ${blueGradientColors};
   @media only screen and (max-width: 480px) {
     flex-direction: column;
   }
 `;
 // This wraps around all the elements in the left
 export const Left = styled.div`
+  background-color: transparent;
   flex: 1;
+  color: white;
   display: flex;
   flex-direction: column;
   padding: 25px;
 `;
 export const Description = styled.div`
+  background-color: transparent;
   font-size: 23px;
   margin: 25px 0px;
 `;
 // This wraps around all the social media icone
 export const SocialContainer = styled.div`
+  background-color: transparent;
   display: flex;
 `;
 
@@ -30,6 +36,7 @@ interface SocialIconProps {
 }
 // This wraps around each Icon
 export const SocialIcon = styled.div<SocialIconProps>`
+  background-color: transparent;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -44,6 +51,8 @@ export const SocialIcon = styled.div<SocialIconProps>`
 // This wraps around all elements in the center
 export const Center = styled.div`
   flex: 1;
+  color: white;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   padding: 25px;
@@ -51,6 +60,7 @@ export const Center = styled.div`
 // Designing the heading for the sections in the center and on the right
 export const Title = styled.h3`
   font-size: 28px;
+  background-color: transparent;
   font-weight: bold;
   margin-bottom: 25px;
 `;
@@ -58,6 +68,7 @@ export const Title = styled.h3`
 export const List = styled.ul`
   margin: 0;
   padding: 0;
+  background-color: transparent;
   list-style: none;
   display: flex;
   flex-wrap: wrap;
@@ -65,19 +76,28 @@ export const List = styled.ul`
 // Designing each item within the list
 export const ListItem = styled.li`
   width: 50%;
+  background-color: transparent;
   margin-bottom: 10px;
   font-size: 23px;
+`;
+
+export const A = styled.a`
+  background-color: transparent;
+  color: white;
 `;
 // This wraps around all elements on the right
 export const Right = styled.div`
   flex: 1;
   display: flex;
+  color: white;
+  background-color: transparent;
   flex-direction: column;
   padding: 25px;
 `;
 
 export const ContactItem = styled.div`
   display: flex;
+  background-color: transparent;
   font-size: 23px;
   align-items: center;
   margin: 8px;

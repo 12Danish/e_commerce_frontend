@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
-export const ViewMore = styled.div`
+interface ViewAllProps {
+  position: {
+    right: number;
+    top: number;
+  };
+}
+export const ViewAll = styled.div<ViewAllProps>`
   position: absolute;
-  right: -200px;
-  top: 25px;
+  right: ${(props) => props.position.right}px;
+  top: ${(props) => props.position.top}px;
   display: flex;
   justify-content: center;
   align-items: center;

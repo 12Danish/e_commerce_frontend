@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const SectionWrapper = styled.div`
-  margin-top: 10px;
+  margin-top: 20px;
   display: flex;
   flex-direction: column;
   background-color: transparent;
-  max-height: 300px;
+  max-height: 500px;
   position: relative;
 `;
 export const ProductsContainer = styled.div`
@@ -25,6 +25,6 @@ export const Wrapper = styled.div<WrapperProps>`
   height: 100%;
   background-color: transparent;
   display: flex;
-  transform: translateX(${(props) => props.slideindex * -30}vw);
+  transform: translateX(${(props) => props.slideindex * -28}vw);
   transition: all 1.5s ease;
 `;

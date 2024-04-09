@@ -3,7 +3,7 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 // Importing right arrow image from mui
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 // Importing data in JSON format
-import { sliderInfo } from "../../assets/data";
+import { topSliderInfo } from "../../assets/data";
 //Importing button from shared styled styled elements
 import { Arrow } from "../Styling/ArrowStyles/SliderArrowStyles";
 import { Button } from "../Styling/SharedStyledElementsStyles";
@@ -50,7 +50,7 @@ const TopSlider = () => {
       </Arrow>
       {/* This wrapper wraps around all of the slides */}
       <Wrapper slideindex={sliderIndex}>
-        {sliderInfo.map(
+        {topSliderInfo.map(
           (item) =>
             (item.key == 1 && (
               <Slide1 key={item.id}>
