@@ -3,7 +3,7 @@ import {
   CommentBox,
   Container,
   StarsWrapper,
-} from "../Styling/ExistingReviewStyles";
+} from "../Styling/ReviewStyles/ExistingReviewStyles";
 import { Desc, Name } from "../Styling/SharedStyledElementsStyles";
 
 // This accepts props for the component
@@ -23,7 +23,7 @@ const ExistingReview = ({ data }: ExitingReviewProps) => {
     const starsArray = Array.from({ length: stars });
     // mapping each of those elements to a strar and returning them
     return starsArray.map((_, index) => (
-      <StarIcon key={index} sx={{ color: "#e0c00b" }} />
+      <StarIcon key={index} sx={{ color: "#e0c00b", backgroundColor :"transparent" }} />
     ));
   };
   return (

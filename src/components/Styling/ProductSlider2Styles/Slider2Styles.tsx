@@ -25,6 +25,6 @@ export const Wrapper = styled.div<WrapperProps>`
   height: 100%;
   background-color: transparent;
   display: flex;
-  transform: translateX(${(props) => props.slideindex * -28}vw);
+  transform: translateX(${(props) => props.slideindex * -25}vw);
   transition: all 1.5s ease;
 `;

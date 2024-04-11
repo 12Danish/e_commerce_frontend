@@ -7,7 +7,7 @@ import {
   Product,
   ProductDetail,
   QuantityWrapper,
-} from "../Styling/CartProductStyles";
+} from "../Styling/CartStyles/CartProductStyles";
 import { Desc } from "../Styling/SharedStyledElementsStyles";
 
 // This are the props for each product within the cart
@@ -32,11 +32,11 @@ const CartProduct = ({ item }: CartProductProps) => {
         <Details>
           <Desc>
             {/*Displaying the product name  entered by the user */}
-            <u>Product Name:</u> {item.title}
+          Product Name: {item.title}
           </Desc>
           <Desc>
             {/*Displaying the product Id entered by the user */}
-            <u>Product Id:</u> {item.id}
+          Product Id: {item.id}
           </Desc>
         </Details>
       </ProductDetail>

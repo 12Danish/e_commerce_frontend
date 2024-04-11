@@ -3,7 +3,7 @@ import {
   Container,
   Form,
   TermsWrapper,
-} from "./Styling/CheckoutFormStyles";
+} from "./Styling/FormStyles/GeneralFormStyles";
 import {
   Button,
   Desc,
@@ -35,7 +35,7 @@ const CheckoutForm = () => {
           <ButtonWrapper>
             <Button
               width="100%"
-              bgcolor="#191970"
+              bgcolor="#113869"
               fontcolor="white"
               bordercolor="white"
             >

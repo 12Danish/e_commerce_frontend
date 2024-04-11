@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "ProductStyles.tsx"],
+  "include": ["src", "src/components/Styling/ProductListStyles/ProductStyles.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

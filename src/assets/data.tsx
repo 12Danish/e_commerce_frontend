@@ -31,43 +31,43 @@ export const SaleSliderInfo = {
 export const categoriesInfo = [
   {
     id: 1,
-    img: "src/assets/images/tools.jpg",
+    img: "src/assets/images/CategoriesImages/Shoe.png",
     title: "Sneakers",
   },
   {
     id: 2,
-    img: "src/assets/images/machines.jpg",
+    img: "src/assets/images/CategoriesImages/tees.png",
     title: "Tees",
   },
   {
     id: 3,
-    img: "src/assets/images/materials.jpg",
+    img: "src/assets/images/CategoriesImages/hoodie.jpg",
     title: "Hoodies",
   },
   {
     id: 4,
-    img: "src/assets/images/plumbing.jpg",
+    img: "src/assets/images/CategoriesImages/shorts.jpg",
     title: "Shorts",
   },
   {
     id: 5,
-    img: "src/assets/images/safety.jpg",
+    img: "src/assets/images/CategoriesImages/sweatshirt.jpg",
     title: "Sweatshirts",
   },
   {
     id: 6,
-    img: "src/assets/images/ventilation.jpg",
+    img: "src/assets/images/CategoriesImages/jeans.jpg",
     title: "Jeans",
   },
   {
     id: 7,
-    img: "src/assets/images/blue-prints.jpg",
+    img: "src/assets/images/CategoriesImages/hats.jpg",
     title: "Hats",
   },
 
   {
     id: 8,
-    img: "src/assets/images/concrete.jpg",
+    img: "src/assets/images/CategoriesImages/accessories.png",
     title: "Other Accessories",
   },
 ];

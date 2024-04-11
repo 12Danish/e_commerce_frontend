@@ -3,9 +3,10 @@ import { productsInfo } from "../../assets/data";
 import {
   AllProductsContainer,
   Container,
+  Header,
   PaginationWrapper,
-} from "../Styling/ProductList";
-import { Header, Title } from "../Styling/SharedStyledElementsStyles";
+} from "../Styling/ProductListStyles/ProductList";
+import { Title } from "../Styling/SharedStyledElementsStyles";
 import FilterContainer from "./FilterContainer";
 import Product from "./Product";
 
@@ -22,7 +23,7 @@ const ProductList = ({
       <Header>{heading_name}</Header>
       {/*Displaying the products if they exist else giving a message */}
       {productsInfo.length > 0 ? (
-        <div>
+        <>
           {/* This wil display the filter options */}
           <FilterContainer />
           {/* This componet has all the products */}
@@ -33,14 +34,9 @@ const ProductList = ({
           </AllProductsContainer>
           {/* This componet wraps around pagination row */}
           <PaginationWrapper>
-            <Pagination
-              count={10}
-              variant="outlined"
-              color="primary"
-              size="large"
-            />
+            <Pagination count={10} variant="outlined" color="primary" />
           </PaginationWrapper>
-        </div>
+        </>
       ) : (
         <Title>There are no products of this category to show</Title>
       )}

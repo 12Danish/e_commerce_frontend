@@ -4,7 +4,7 @@ import {
   EachRow,
   Links,
   OptionsWrapper,
-} from "../Styling/Navbar/SideMenuOptionsStyles";
+} from "../Styling/NavbarStyles/SideMenuOptionsStyles";
 
 const SideMenuOptions = () => {
   return (

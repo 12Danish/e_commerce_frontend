@@ -44,8 +44,9 @@ export const QuantityWrapper = styled.span`
 export const Pricetext = styled.h1`
   color: red;
   font-style: italic;
-  font-weight: 700;
+  font-weight: 500;
   margin-top: 7px;
+  font-size: 20px;
 `;
 
 

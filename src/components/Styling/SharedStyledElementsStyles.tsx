@@ -15,31 +15,24 @@ export const BoldHeading = styled.h1<BoldHeadingProps>`
   }
 `;
 
-// Defining the properties of the header. I have exported this here as I am using the same component within ProductList anf Categories and NewsLetter
-export const Header = styled.div`
-  margin-top: 10px;
-  height: 80px;
-  width: 100%;
-  background-color: #191970;
-  color: #f8f8ff;
-  font-size: 50px;
-  font-weight: bold;
-  text-align: center;
-`;
+interface IconProps {
+  bgColor: string;
+  hoverColor: string;
+}
 
 // Exporting this as this can be used in Product.tsx and Navbar.tsx
-export const Icon = styled.div`
+export const Icon = styled.div<IconProps>`
   width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
   border-radius: 50%;
   justify-content: center;
-  background-color: #113869;
+  background-color: ${(props) => props.bgColor};
   cursor: pointer;
   transition: all 0.5s ease;
   &:hover {
-    background-color: #0a213d;
+    background-color: ${(props) => props.hoverColor};
     transform: scale(1.1);
   }
 `;
@@ -72,14 +65,15 @@ export const Button = styled.button<ButtonProps>`
 // This eleement is being used in SingleProductDetails and within Reviews
 export const Desc = styled.p`
   margin-top: 10px;
+  background-color: transparent;
   font-style: italic;
-  font-weight: 700;
+  font-weight: 600;
 `;
 
 // This is the tag for the name of the person with all the needed styling.This is being used in ExistingReviws and AddReviews
 export const Name = styled.h1`
   font-size: 20px;
-
+  background-color: transparent;
   font-weight: 700;
   margin-bottom: 5px;
 `;
@@ -88,11 +82,14 @@ export const Name = styled.h1`
 // Wraps around the whole register box
 interface FormWrapperProps {
   margin: string;
+  top: number;
 }
 export const FormWrapper = styled.div<FormWrapperProps>`
+  position: absolute;
   margin: ${(props) => props.margin};
   padding: 20px;
-  width: 40%;
+  width: 800px;
+  top: ${(props) => props.top}px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -107,6 +104,7 @@ export const FormWrapper = styled.div<FormWrapperProps>`
 export const Title = styled.h1`
   font-weight: 500;
   font-size: 40px;
+  background-color: transparent;
 `;
 
 // Styling for each form field

@@ -5,12 +5,12 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar_components/Navbar";
 const Checkout = () => {
   return (
-    <div>
+    <>
       <Announcements />
       <Navbar />
       <CheckoutForm />
       <Footer />
-    </div>
+    </>
   );
 };
 

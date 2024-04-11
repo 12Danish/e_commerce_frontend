@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   background-color: transparent;
   height: 400px;
-  width: 370px;
+  width: 300px;
   border-radius: 20px;
   margin-right: 10px;
 
@@ -30,12 +30,14 @@ export const ImageWrapper = styled.div`
   background-color: transparent;
   overflow: hidden;
   width: 100%;
+  display: flex;
+  justify-content: center;
 `;
 // Defining the properties for the image
 export const Image = styled.img`
   height: 100%;
   overflow: hidden;
-  width: 100%;
+  width: 70%;
   object-fit: cover;
 `;
 // This will wrap all the description contents

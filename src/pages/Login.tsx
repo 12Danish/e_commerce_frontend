@@ -6,48 +6,14 @@ import {
   Title,
 } from "../components/Styling/SharedStyledElementsStyles";
 
-// This is the top most level container
-const Container = styled.div`
-  height: 100vh;
-  width: 100vw;
-  // Using this to create a thin white layer on top of the image
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    ),
-    url("src/assets/images/bgpic_login.jpg") center;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
+import { Container } from "../components/Styling/FormStyles/GeneralFormStyles";
 // Styling for the form
-export const Form = styled.form`
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  margin: 20px 0px 20px 0px;
-  overflow: hidden;
-`;
 
-// Wraps around all the links
-const LinkWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin: 10px;
-`;
-
-// Styling for each link
-const Link = styled.a`
-  text-decoration: underline;
-  cursor: pointer;
-`;
-
+import { LinkWrapper,Link,Form } from "../components/Styling/FormStyles/LoginFormStyles";
 const Login = () => {
   return (
     <Container>
-      <FormWrapper margin="0px">
+      <FormWrapper top={100} margin="0px">
         <Title>Sign In</Title>
         <Form>
           <Input placeholder="Username" />
@@ -59,7 +25,7 @@ const Login = () => {
 
           <Button
             width="auto"
-            bgcolor="#191970"
+            bgcolor="#113869"
             fontcolor="white"
             bordercolor="white"
           >

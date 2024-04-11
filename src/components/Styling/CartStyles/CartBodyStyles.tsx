@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 1309px;
   min-height: 30vh;
   height: auto;
   margin-bottom: 50px;
@@ -13,7 +13,7 @@ export const Container = styled.div`
 export const TopOptions = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 1339px;
   flex: 1;
   padding: 5px;
   max-height: 55px;
@@ -26,6 +26,7 @@ export const TopOptions = styled.div`
 
 export const TitleWrapper = styled.div`
   position: absolute;
+  background-color: transparent;
   left: 50%; /* Move to the horizontal center */
   transform: translateX(-50%); /* Adjust to center */
   top: 0;
@@ -53,11 +54,12 @@ export const Summary = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  border-width: 2px;
+  border: 1px solid black; /* Added border style */
   min-height: 430px;
+  min-width: 400px;
   max-height: 450px;
   padding: 20px;
-  border-color: black;
+  box-sizing: border-box; /* Added box-sizing */
   @media only screen and (max-width: 480px) {
     justify-content: space-between;
   }

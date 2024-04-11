@@ -48,8 +48,8 @@ export const InfoWrapper = styled.div`
   background-color: white;
 `;
 // Defining the title
-export const Info = styled.h1`
-  font-weight: bold;
+export const Info = styled.h3`
+  font-weight: 500;
 `;
 
 // This wraps around the icon

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   height: 200vh;
-  width: 100%;
+  width: 1240px;
   display: flex;
   flex-direction: column;
   @media only screen and (max-width: 480px) {
@@ -16,6 +16,7 @@ export const ImageAndInfoWrapper = styled.div`
   width: 100%;
   padding: 50px;
   display: flex;
+
   justify-content: space-between;
 
   @media only screen and (max-width: 480px) {
@@ -30,9 +31,10 @@ export const ImageWrapper = styled.div`
 `;
 // This is acrtuallyt the Image element
 export const Image = styled.img`
-  width: 80%;
-  height: 80%;
+  width: 400px;
+  height: 400px;
   object-fit: cover;
+  overflow: hidden;
   @media only screen and (max-width: 480px) {
     width: 95%;
   }
@@ -41,6 +43,8 @@ export const Image = styled.img`
 export const InfoWrapper = styled.div`
   flex: 1;
   display: flex;
+  flex-wrap: wrap;
+  max-width: 500px;
   padding: 20px 50px;
   flex-direction: column;
   border: solid;
@@ -51,16 +55,24 @@ export const InfoWrapper = styled.div`
     padding: 20px 7px;
   }
 `;
+export const DescriptionWrapper = styled.div`
+   max-width: 400px;
+  display: inline-block;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+`;
 // This describes the title
 export const Title = styled.h1`
   flex: 1;
-  font-size: 70px;
+  max-width: 500px;
+  font-size: 40px;
 `;
 
 //This eleemnt styled the price
 export const Price = styled.span`
   flex: 1;
-  font-size: 40px;
+  font-size: 30px;
+  max-width: 500px;
   color: red;
 `;
 // This wraps around the whole counter
@@ -108,6 +120,7 @@ export const AllReviewsWrapper = styled.div`
 export const ExistingReviewsWrapper = styled.div`
   flex: 1;
   padding: 7px;
+  margin-right: 100px;;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -133,6 +146,7 @@ export const NewReviewWrapper = styled.div`
   flex: 1;
   padding: 7px;
   display: flex;
+  background-color: #e2eef3;
   flex-direction: column;
   overflow: hidden;
 `;

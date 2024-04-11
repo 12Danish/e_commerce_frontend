@@ -2,7 +2,7 @@ import styled from "styled-components";
 // This is the top most level element
 export const Container = styled.div`
   padding: 10px;
-  background-color: #e2eef3;
+  background-color: transparent;
   height: 100%;
   display: flex;
   margin-top: 20px;
@@ -14,6 +14,7 @@ export const Container = styled.div`
 export const NameWrapper = styled.div`
   flex: 1;
   display: flex;
+  background-color: transparent;
   flex-direction: column;
   width: auto;
   height: auto;
@@ -45,11 +46,13 @@ export const NameBox = styled.input`
 `;
 export const StarsWrapper = styled.span`
   flex: 0.5;
+  background-color: transparent;
 `;
 
 // This wraps around the Reviews Section
 export const ReviewWrapper = styled.div`
   flex: 2;
+  background-color: transparent;
   display: flex;
   flex-direction: column;
 `;

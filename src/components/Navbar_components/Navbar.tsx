@@ -30,7 +30,7 @@ import {
   SideMenuHeadingWrapper,
   SideMenuWrapper,
   Wrapper,
-} from "../Styling/Navbar/NavbarStyles";
+} from "../Styling/NavbarStyles/NavbarStyles";
 // This is the top most level container for the navbar
 
 // This is the main functional component which is returned in the end
@@ -72,7 +72,7 @@ const Navbar = () => {
               <NavbarLinks bg_color="#113869">Login</NavbarLinks>
             </NavbarOptions>
           )}
-          <Icon>
+          <Icon bgColor="#113869" hoverColor="#0a213d">
             <Badge
               badgeContent={2}
               sx={{ color: "#113869", cursor: "pointer" }}
@@ -115,7 +115,11 @@ function renderSideMenu(screenSize: boolean) {
   console.log(xAxisPosition);
   return (
     <>
-      <Icon onClick={() => handleMenuMovement("menu")}>
+      <Icon
+        bgColor="#113869"
+        hoverColor="#0a213d"
+        onClick={() => handleMenuMovement("menu")}
+      >
         <MenuIcon
           sx={{ color: "white", cursor: "pointer", backgroundColor: "#113869" }}
         />

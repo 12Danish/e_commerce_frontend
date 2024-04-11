@@ -2,7 +2,6 @@ import { productDetail } from "../assets/data";
 import Announcements from "../components/Announcements";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar_components/Navbar";
-import Newsletter from "../components/Newsletter";
 import SingleProductDetails from "../components/SingleProductDetails_components/SingleProductDetails";
 const ProductDetailsPage = () => {
   return (
@@ -17,7 +16,6 @@ const ProductDetailsPage = () => {
         <SingleProductDetails product={product} key={product.id} />
       ))}
       {/*Adding these components which I have defined */}
-      <Newsletter />
       <Footer />
     </div>
   );

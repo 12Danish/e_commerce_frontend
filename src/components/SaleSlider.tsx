@@ -7,7 +7,7 @@ import {
   SaleSliderTitle,
   SaleSlideDesc,
   SaleSlideInfoWrapper,
-} from "./Styling/SaleSlider/SaleSliderStyles";
+} from "./Styling/SaleSliderStyles/SaleSliderStyles";
 import { SaleSliderInfo } from "../assets/data";
 import { Button } from "./Styling/SharedStyledElementsStyles";
 const SaleSlider = () => {

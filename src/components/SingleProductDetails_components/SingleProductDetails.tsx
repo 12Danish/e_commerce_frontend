@@ -19,6 +19,7 @@ import {
   NoReviewWrapper,
   NumberInput,
   Price,
+  DescriptionWrapper,
   Title,
 } from "../Styling/SingleProductDetailsStyles";
 import AddReview from "./AddReview";
@@ -44,7 +45,9 @@ const SingleProductDetails = ({ product }: SingleProductDetailsProps) => {
         <InfoWrapper>
           <Title>{product.title}</Title>
           <Price>{product.price}RS</Price>
-          <Desc>{product.desc}</Desc>
+          <DescriptionWrapper>
+          hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhewjuaiednasdcewuidhewiuhdnewiuciudwjcbdhbnwdacewidcubducbniudcnkjwdbcwebcuewbdcjdasbchjdsb
+          </DescriptionWrapper>
           {/* This wraps around the counter */}
           <CounterWrapper>
             <Desc>Quantity</Desc>
@@ -63,7 +66,7 @@ const SingleProductDetails = ({ product }: SingleProductDetailsProps) => {
           <ButtonWrapper>
             <Button
               width="auto"
-              bgcolor="#191970"
+              bgcolor="#113869"
               fontcolor="white"
               bordercolor="white"
             >
@@ -72,8 +75,8 @@ const SingleProductDetails = ({ product }: SingleProductDetailsProps) => {
             <Button
               width="auto"
               bgcolor="#e2eef3"
-              fontcolor="#191970"
-              bordercolor="#191970"
+              fontcolor="#113869"
+              bordercolor="#113869"
             >
               BUY NOW
             </Button>
@@ -86,14 +89,14 @@ const SingleProductDetails = ({ product }: SingleProductDetailsProps) => {
       if the conditions are true then the element is displayed */}
         {reviewsData && reviewsData.length > 0 && (
           <ExistingReviewsWrapper>
-            <BoldHeading fontcolor="#191970">Reviews By Customers</BoldHeading>
+            <BoldHeading fontcolor="#113869" backgroundColor="transparent">Reviews By Customers</BoldHeading>
             {/* Mapping each data entry to a review component defined seprately*/}
             {reviewsData.map((review) => (
               <ExistingReview data={review} key={review.id} />
             ))}
             <Button
               width="auto"
-              bgcolor="#191970"
+              bgcolor="#113869"
               fontcolor="white"
               bordercolor="white"
             >
@@ -105,7 +108,7 @@ const SingleProductDetails = ({ product }: SingleProductDetailsProps) => {
         {reviewsData.length == 0 && (
           <ExistingReviewsWrapper>
             <NoReviewWrapper>
-              <BoldHeading fontcolor="#191970">
+              <BoldHeading fontcolor="#113869" backgroundColor="transparent">
                 There are no reviews for this product.
               </BoldHeading>
             </NoReviewWrapper>
@@ -113,13 +116,13 @@ const SingleProductDetails = ({ product }: SingleProductDetailsProps) => {
         )}
         {/* Section for adding a new review */}
         <NewReviewWrapper>
-          <BoldHeading fontcolor="#191970">
+          <BoldHeading fontcolor="#113869" backgroundColor="transparent">
             Have You Tried This Product? Leave A Review.
           </BoldHeading>
           <AddReview />
           <Button
             width="auto"
-            bgcolor="#191970"
+            bgcolor="#113869"
             fontcolor="white"
             bordercolor="white"
           >

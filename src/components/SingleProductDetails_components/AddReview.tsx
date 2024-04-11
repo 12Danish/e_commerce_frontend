@@ -7,7 +7,7 @@ import {
   ReviewBox,
   ReviewWrapper,
   StarsWrapper,
-} from "../Styling/AddReviewStyles";
+} from "../Styling/ReviewStyles/AddReviewStyles";
 import { Name } from "../Styling/SharedStyledElementsStyles";
 
 const AddReview = () => {
@@ -54,6 +54,7 @@ function handleDisplayStars() {
           color:
             (hoverValue || currentFilledStars) > index ? "#e0c00b" : "grey",
           cursor: "pointer",
+          backgroundColor : "transparent"
         }}
         onClick={() => handleClick(index + 1)}
         // When we hover on

@@ -5,7 +5,7 @@ import {
   FilterText,
   Option,
   Select,
-} from "../Styling/FilterContainerStyles";
+} from "../Styling/ProductListStyles/FilterContainerStyles";
 
 const FilterContainer = () => {
   return (
