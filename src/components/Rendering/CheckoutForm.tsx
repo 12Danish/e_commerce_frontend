@@ -14,7 +14,7 @@ import {
 
 const CheckoutForm = () => {
   return (
-    <Container>
+    <Container userType="buyer">
       <FormWrapper margin="15px 0px 15px 0px">
         <Title>Checkout Form</Title>
         <Form>

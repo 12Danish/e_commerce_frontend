@@ -11,9 +11,11 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 // Getting the cancel Icon
 import CancelIcon from "@mui/icons-material/Cancel";
 //Importing the wrapper for icons
-import { BoldHeading, Icon } from "../../Styling/SharedStyledElementsStyles";
+import { blue_color, BoldHeading, Icon } from "../../Styling/SharedStyledElementsStyles";
 // importing the side menu
 import SideMenuOptions from "./SideMenuOptions";
+import { linkStyle } from "../../Styling/LinkStyles";
+import { Link, Outlet } from "react-router-dom";
 // Using useState
 import { useState } from "react";
 import {
@@ -50,8 +52,10 @@ const Navbar = () => {
         </Left>
         {/*The center component has the Company Name within it*/}
         <Center>
-          <BoldHeading backgroundColor="#113869" fontcolor="white">
+          <BoldHeading backgroundColor={blue_color} fontcolor="white">
+            <Link to="/" style={linkStyle}>
             Company Name{" "}
+            </Link>
           </BoldHeading>
         </Center>
 
@@ -59,35 +63,44 @@ const Navbar = () => {
         <Right>
           {!screenSize && (
             <NavbarOptions>
-              <NavbarLinks bg_color="#113869">Become a Seller</NavbarLinks>
+              <Link to="/register" style={linkStyle}>
+                <NavbarLinks bg_color={blue_color}>Become a Seller</NavbarLinks>
+              </Link>
             </NavbarOptions>
           )}
           {!screenSize && (
             <NavbarOptions>
-              <NavbarLinks bg_color="#113869">Sign Up</NavbarLinks>
+              <Link to="/register" style={linkStyle}>
+                <NavbarLinks bg_color={blue_color}>Sign Up</NavbarLinks>
+              </Link>
             </NavbarOptions>
           )}
           {!screenSize && (
             <NavbarOptions>
-              <NavbarLinks bg_color="#113869">Login</NavbarLinks>
+              <Link to="/login" style={linkStyle}>
+                <NavbarLinks bg_color={blue_color}>Login</NavbarLinks>
+              </Link>
             </NavbarOptions>
           )}
-          <Icon bgColor="#113869" hoverColor="#0a213d">
-            <Badge
-              badgeContent={2}
-              sx={{ color: "#113869", cursor: "pointer" }}
-            >
-              <ShoppingCartIcon
-                sx={{
-                  color: "white",
-                  cursor: "pointer",
-                  backgroundColor: "#113869",
-                }}
-              />
-            </Badge>
-          </Icon>
+          <Link to="/cart" style={linkStyle}>
+            <Icon bgColor={blue_color} hoverColor="#0a213d">
+              <Badge
+                badgeContent={2}
+                sx={{ color: {blue_color}, cursor: "pointer", bgcolor:"transparent" }}
+              >
+                <ShoppingCartIcon
+                  sx={{
+                    color: "white",
+                    cursor: "pointer",
+                    backgroundColor: "transparent",
+                  }}
+                />
+              </Badge>
+            </Icon>
+          </Link>
         </Right>
       </Wrapper>
+      <Outlet />
     </Container>
   );
 };
@@ -116,12 +129,12 @@ function renderSideMenu(screenSize: boolean) {
   return (
     <>
       <Icon
-        bgColor="#113869"
+        bgColor={blue_color}
         hoverColor="#0a213d"
         onClick={() => handleMenuMovement("menu")}
       >
         <MenuIcon
-          sx={{ color: "white", cursor: "pointer", backgroundColor: "#113869" }}
+          sx={{ color: "white", cursor: "pointer", backgroundColor: "transparent" }}
         />
       </Icon>
       <SideMenuWrapper xposition={xAxisPosition}>
@@ -148,23 +161,23 @@ function renderSideMenu(screenSize: boolean) {
           {/*Only displayed in mobile mode */}
           {screenSize && (
             <NavbarOptions>
-              <NavbarLinks bg_color="#113869">Become a Seller</NavbarLinks>
+              <NavbarLinks bg_color={blue_color}>Become a Seller</NavbarLinks>
             </NavbarOptions>
           )}
           {/*Only displayed in mobile mode */}
           {screenSize && (
             <NavbarOptions>
-              <NavbarLinks bg_color="#113869">Sign Up</NavbarLinks>
+              <NavbarLinks bg_color={blue_color}>Sign Up</NavbarLinks>
             </NavbarOptions>
           )}
           {/*Only displayed in mobile mode */}
           {screenSize && (
             <NavbarOptions>
-              <NavbarLinks bg_color="#113869">Login</NavbarLinks>
+              <NavbarLinks bg_color={blue_color}>Login</NavbarLinks>
             </NavbarOptions>
           )}
 
-          <BoldHeading backgroundColor="#113869" fontcolor="white">
+          <BoldHeading backgroundColor={blue_color} fontcolor="white">
             Company Name
           </BoldHeading>
         </SideMenuFooterWrapper>

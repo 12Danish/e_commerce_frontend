@@ -2,6 +2,7 @@
 import styled from "styled-components";
 // This is the top most level container for the navbar
 import { blue_color } from "../SharedStyledElementsStyles";
+
 export const Container = styled.div`
   height: 60px;
   overflow: hidden;
@@ -122,7 +123,7 @@ export const NavbarOptions = styled.div`
 interface NavBarLinkProps {
   bg_color: string;
 }
-export const NavbarLinks = styled.a<NavBarLinkProps>`
+export const NavbarLinks = styled.div<NavBarLinkProps>`
   background-color: ${(props) => props.bg_color};
   color: white;
 `;

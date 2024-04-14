@@ -11,9 +11,11 @@ import {
   TitleWrapper,
   TopOptions,
 } from "../../Styling/CartStyles/CartBodyStyles";
-import { Button, Title } from "../../Styling/SharedStyledElementsStyles";
+import { blue_color, Button, Title } from "../../Styling/SharedStyledElementsStyles";
 import CartProduct from "./CartProduct";
 
+import { Link,Outlet } from "react-router-dom";
+import { linkStyle } from "../../Styling/LinkStyles";
 const CartBody = () => {
   const [deliveryCheck, setDeliveryCheck] = useState(true);
   const [taxedTotalPrice, setTaxedTotalPrice] = useState(0);
@@ -100,14 +102,18 @@ const CartBody = () => {
               </PriceValue>
             </SummaryPerLine>
             <SummaryPerLine>
+              
               <Button
                 width="100%"
-                bgcolor="#113869"
+                bgcolor={blue_color}
                 fontcolor="white"
                 bordercolor="white"
               >
+                <Link to="/checkout" style={linkStyle}>
                 Proceed To Checkout
+                 </Link>
               </Button>
+             
             </SummaryPerLine>
           </Summary>
         </LowerBody>
