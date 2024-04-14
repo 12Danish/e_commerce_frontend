@@ -8,7 +8,7 @@ import ProductListPage from "./pages/ProductListPage.tsx";
 function App() {
   return (
     <>
-      <ProductDetailsPage />
+      <Register />
     </>
   );
 }

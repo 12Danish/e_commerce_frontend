@@ -1,12 +1,11 @@
 //Importing this to use styled components
 import styled from "styled-components";
-
 // This is the top most level container for the navbar
-
+import { blue_color } from "../SharedStyledElementsStyles";
 export const Container = styled.div`
   height: 60px;
   overflow: hidden;
-  background-color: #113869;
+  background-color: ${blue_color};
 
   @media only screen and (max-width: 480px) {
     height: auto;
@@ -66,7 +65,7 @@ export const SideMenuWrapper = styled.div<SideMenuWrapperProps>`
   width: 300px;
   position: fixed;
   z-index: 4;
-  border-color: #113869;
+  border-color: ${blue_color};
   transition: all 0.5s;
 `;
 
@@ -98,7 +97,7 @@ export const SideMenuFooterWrapper = styled.div`
 // This has the styling for the title
 export const SideMenuHeadingWrapper = styled.div`
   font-size: 35px;
-  color: #113869;
+  color: ${blue_color};
   background-color: white;
 `;
 

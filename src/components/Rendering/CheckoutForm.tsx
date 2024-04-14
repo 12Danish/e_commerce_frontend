@@ -3,14 +3,14 @@ import {
   Container,
   Form,
   TermsWrapper,
-} from "./Styling/FormStyles/GeneralFormStyles";
+} from "../Styling/FormStyles/GeneralFormStyles";
 import {
   Button,
   Desc,
   FormWrapper,
   Input,
   Title,
-} from "./Styling/SharedStyledElementsStyles";
+} from "../Styling/SharedStyledElementsStyles";
 
 const CheckoutForm = () => {
   return (

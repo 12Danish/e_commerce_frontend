@@ -6,8 +6,8 @@ import {
   Image,
   Info,
   InfoWrapper,
-} from "../Styling/ProductListStyles/ProductStyles";
-import { Icon } from "../Styling/SharedStyledElementsStyles";
+} from "../../Styling/ProductListStyles/ProductStyles";
+import { Icon } from "../../Styling/SharedStyledElementsStyles";
 // These are the arguments this component accepts in order to dynamically render the data given to it
 interface ProductProps {
   product: {
@@ -35,7 +35,9 @@ const Product = ({ product }: ProductProps) => {
       <IconWrapper>
         {/* Adding icon */}
         <Icon bgColor="white" hoverColor="#e2e2e2">
-          <ShoppingCartIcon style={{backgroundColor : "transparent"}}></ShoppingCartIcon>
+          <ShoppingCartIcon
+            style={{ backgroundColor: "transparent" }}
+          ></ShoppingCartIcon>
         </Icon>
       </IconWrapper>
     </Container>

@@ -1,39 +1,60 @@
-import styled from "styled-components";
+import SwitchUser from "../components/Rendering/SwitchUser";
+import UserType, { UserContext } from "../components/Rendering/UserType";
+import { Container } from "../components/Styling/FormStyles/GeneralFormStyles";
 import {
   Button,
   FormWrapper,
   Input,
   Title,
+  blue_color,
+  purple_color,
 } from "../components/Styling/SharedStyledElementsStyles";
-
-import { Container } from "../components/Styling/FormStyles/GeneralFormStyles";
 // Styling for the form
 
-import { LinkWrapper,Link,Form } from "../components/Styling/FormStyles/LoginFormStyles";
-const Login = () => {
-  return (
-    <Container>
-      <FormWrapper top={100} margin="0px">
-        <Title>Sign In</Title>
-        <Form>
-          <Input placeholder="Username" />
-          <Input placeholder="Password" />
-          <LinkWrapper>
-            <Link>Forgot Password?</Link>
-            <Link>Create an Account</Link>
-          </LinkWrapper>
+import {
+  Form,
+  Link,
+  LinkWrapper,
+} from "../components/Styling/FormStyles/LoginFormStyles";
 
-          <Button
-            width="auto"
-            bgcolor="#113869"
-            fontcolor="white"
-            bordercolor="white"
-          >
-            LOG IN
-          </Button>
-        </Form>
-      </FormWrapper>
-    </Container>
+const Login = () => {
+  const { userType, setUserType } = UserType();
+  return (
+    <UserContext.Provider value={{ userType, setUserType }}>
+      <Container userType={userType}>
+        <FormWrapper top={100} margin="0px">
+          <SwitchUser position={{ top: 20, right: 10 }} />
+          <Title>Sign In</Title>
+          <Form>
+            <Input placeholder="Username" />
+            <Input placeholder="Password" />
+            <LinkWrapper>
+              <Link>Forgot Password?</Link>
+              <Link>Create an Account</Link>
+            </LinkWrapper>
+            {userType == "buyer" ? (
+              <Button
+                width="auto"
+                bgcolor={blue_color}
+                fontcolor="white"
+                bordercolor="white"
+              >
+                LOG IN
+              </Button>
+            ) : (
+              <Button
+                width="auto"
+                bgcolor={purple_color}
+                fontcolor="black"
+                bordercolor="black"
+              >
+                LOG IN
+              </Button>
+            )}{" "}
+          </Form>
+        </FormWrapper>
+      </Container>
+    </UserContext.Provider>
   );
 };
 

@@ -1,4 +1,4 @@
-import { Container } from "./Styling/AnnouncementsStyles";
+import { Container } from "../Styling/AnnouncementsStyles";
 
 // This component is exported in the end
 const Announcements = () => {

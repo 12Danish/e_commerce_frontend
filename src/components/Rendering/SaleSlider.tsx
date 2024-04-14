@@ -1,15 +1,15 @@
+import { SaleSliderInfo } from "../../assets/data";
 import {
-  SaleSliderContainer,
+  SaleSlideDesc,
+  SaleSlideInfoWrapper,
   SaleSliderButtonWrapper,
+  SaleSliderContainer,
   SaleSliderImage,
   SaleSliderImageWrapper,
   SaleSliderRectangle,
   SaleSliderTitle,
-  SaleSlideDesc,
-  SaleSlideInfoWrapper,
-} from "./Styling/SaleSliderStyles/SaleSliderStyles";
-import { SaleSliderInfo } from "../assets/data";
-import { Button } from "./Styling/SharedStyledElementsStyles";
+} from "../Styling/SaleSliderStyles/SaleSliderStyles";
+import { Button } from "../Styling/SharedStyledElementsStyles";
 const SaleSlider = () => {
   return (
     <>

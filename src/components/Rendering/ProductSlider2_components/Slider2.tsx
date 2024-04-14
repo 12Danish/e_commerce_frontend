@@ -1,15 +1,15 @@
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
-import { categoriesInfo } from "../../assets/data";
-import useSlideMovement from "../SliderMovement";
-import { Arrow } from "../Styling/ArrowStyles/SliderArrowStyles";
-import { ViewAll } from "../Styling/ArrowStyles/ViewMoreStyles";
+import { categoriesInfo } from "../../../assets/data";
+import { Arrow } from "../../Styling/ArrowStyles/SliderArrowStyles";
+import { ViewAll } from "../../Styling/ArrowStyles/ViewMoreStyles";
 import {
   ProductsContainer,
   SectionWrapper,
   Wrapper,
-} from "../Styling/ProductSlider2Styles/Slider2Styles";
-import { ProductSliderTitle } from "../Styling/SharedStyledElementsStyles";
+} from "../../Styling/ProductSlider2Styles/Slider2Styles";
+import { ProductSliderTitle } from "../../Styling/SharedStyledElementsStyles";
+import useSlideMovement from "../SliderMovement";
 import CategoryItem from "./SliderItem2";
 
 // The main component which is returned

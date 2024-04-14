@@ -1,12 +1,12 @@
 import Pagination from "@mui/material/Pagination";
-import { productsInfo } from "../../assets/data";
+import { productsInfo } from "../../../assets/data";
 import {
   AllProductsContainer,
   Container,
   Header,
   PaginationWrapper,
-} from "../Styling/ProductListStyles/ProductList";
-import { Title } from "../Styling/SharedStyledElementsStyles";
+} from "../../Styling/ProductListStyles/ProductList";
+import { Title } from "../../Styling/SharedStyledElementsStyles";
 import FilterContainer from "./FilterContainer";
 import Product from "./Product";
 

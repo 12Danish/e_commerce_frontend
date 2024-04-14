@@ -1,8 +1,8 @@
-import Announcements from "../components/Announcements";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar_components/Navbar";
+import Navbar from "../components/Rendering/Navbar_components/Navbar";
+import Announcements from "../components/Rendering/Announcements";
+import Footer from "../components/Rendering/Footer";
 
-import ProductList from "../components/ProductList_components/ProductList";
+import ProductList from "../components/Rendering/ProductList_components/ProductList";
 
 const ProductListPage = () => {
   return (

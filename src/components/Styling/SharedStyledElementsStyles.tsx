@@ -1,5 +1,26 @@
 import styled from "styled-components";
 
+export const blue_color = "#113869";
+export const purple_color = "#9E84FF";
+export const blueGradientColors = `
+linear-gradient(
+  91.02deg,
+  #4280cf 7.23%,
+  #3975c0 14.99%,
+  #0c315f 50.29%,
+  #0a2444 63.22%,
+  #03234b 85.09%,
+  #4280cf 102.7%
+)`;
+
+export const purpleGradientColors = `
+background: hsla(253, 100%, 76%, 1);
+background: linear-gradient(90deg, hsla(253, 100%, 76%, 1) 0%, hsla(0, 0%, 0%, 1) 100%);
+background: -moz-linear-gradient(90deg, hsla(253, 100%, 76%, 1) 0%, hsla(0, 0%, 0%, 1) 100%);
+background: -webkit-linear-gradient(90deg, hsla(253, 100%, 76%, 1) 0%, hsla(0, 0%, 0%, 1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#9E84FF",endColorstr="#000000",GradientType=1);
+`;
+
 interface BoldHeadingProps {
   fontcolor: string;
   backgroundColor: string;
@@ -115,17 +136,6 @@ export const Input = styled.input`
   margin: 20px 20px 0px 0px;
   font-weight: 700;
 `;
-
-export const blueGradientColors = `
-linear-gradient(
-  91.02deg,
-  #4280cf 7.23%,
-  #3975c0 14.99%,
-  #0c315f 50.29%,
-  #0a2444 63.22%,
-  #03234b 85.09%,
-  #4280cf 102.7%
-)`;
 
 export const ProductSliderTitle = styled.h1`
   flex: 1;

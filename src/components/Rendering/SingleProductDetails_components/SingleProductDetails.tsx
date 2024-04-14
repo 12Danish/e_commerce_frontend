@@ -1,15 +1,15 @@
-import { reviewsData } from "../../assets/data";
-import ExistingReview from "./ExistingReview";
+import { reviewsData } from "../../../assets/data";
 import {
   BoldHeading,
   Button,
   Desc,
-} from "../Styling/SharedStyledElementsStyles";
+} from "../../Styling/SharedStyledElementsStyles";
 import {
   AllReviewsWrapper,
   ButtonWrapper,
   Container,
   CounterWrapper,
+  DescriptionWrapper,
   ExistingReviewsWrapper,
   Image,
   ImageAndInfoWrapper,
@@ -19,10 +19,10 @@ import {
   NoReviewWrapper,
   NumberInput,
   Price,
-  DescriptionWrapper,
   Title,
-} from "../Styling/SingleProductDetailsStyles";
+} from "../../Styling/SingleProductDetailsStyles";
 import AddReview from "./AddReview";
+import ExistingReview from "./ExistingReview";
 // These are the arguments this component accepts in order to dynamically render the data given to it
 interface SingleProductDetailsProps {
   product: {
@@ -46,7 +46,7 @@ const SingleProductDetails = ({ product }: SingleProductDetailsProps) => {
           <Title>{product.title}</Title>
           <Price>{product.price}RS</Price>
           <DescriptionWrapper>
-          hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhewjuaiednasdcewuidhewiuhdnewiuciudwjcbdhbnwdacewidcubducbniudcnkjwdbcwebcuewbdcjdasbchjdsb
+            hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhewjuaiednasdcewuidhewiuhdnewiuciudwjcbdhbnwdacewidcubducbniudcnkjwdbcwebcuewbdcjdasbchjdsb
           </DescriptionWrapper>
           {/* This wraps around the counter */}
           <CounterWrapper>
@@ -89,7 +89,9 @@ const SingleProductDetails = ({ product }: SingleProductDetailsProps) => {
       if the conditions are true then the element is displayed */}
         {reviewsData && reviewsData.length > 0 && (
           <ExistingReviewsWrapper>
-            <BoldHeading fontcolor="#113869" backgroundColor="transparent">Reviews By Customers</BoldHeading>
+            <BoldHeading fontcolor="#113869" backgroundColor="transparent">
+              Reviews By Customers
+            </BoldHeading>
             {/* Mapping each data entry to a review component defined seprately*/}
             {reviewsData.map((review) => (
               <ExistingReview data={review} key={review.id} />

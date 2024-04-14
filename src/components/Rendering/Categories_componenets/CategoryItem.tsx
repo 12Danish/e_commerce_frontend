@@ -1,14 +1,12 @@
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import {
   Container,
-  Image,
   Cta,
-  Price,
-  ProductTitle,
+  Image,
   ImageWrapper,
   InfoWrapper,
-} from "../Styling/ProductSlider1Styles/PrdouctSlider1ItemStyes";
-import DiscountIcon from "@mui/icons-material/Discount";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+  ProductTitle,
+} from "../../Styling/ProductSlider2Styles/PrdouctSlider2ItemStyes";
 // Defining props for CategoryItem Component
 interface CategoryItemProps {
   item: {
@@ -16,26 +14,25 @@ interface CategoryItemProps {
     img: string;
     title: string;
   };
-  color: string;
 }
 
 // The main component that is returned
-const CategoryItem = ({ item, color }: CategoryItemProps) => {
+const CategoryItem = ({ item }: CategoryItemProps) => {
   return (
     <Container>
       {/* This wraps around the image */}
-      <ImageWrapper color={color}>
+      <ImageWrapper>
         {/* Displaying the image of the item in category */}
+        <Image src={item.img} />
       </ImageWrapper>
       {/*This wraps around the all the information  */}
       <InfoWrapper>
         <ProductTitle>{item.title}</ProductTitle>
-        <Price isSale={true}>
-          Rs: 5000 {true && <DiscountIcon style={{ fontSize: "small" }} />}
-        </Price>
         <Cta>
           Shop Now
-          <ArrowForwardIcon style={{ color: "grey", backgroundColor : "transparent" }} />
+          <ArrowForwardIcon
+            style={{ color: "grey", backgroundColor: "transparent" }}
+          />
         </Cta>
       </InfoWrapper>
     </Container>

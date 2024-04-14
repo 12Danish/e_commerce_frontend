@@ -1,15 +1,19 @@
 import styled from "styled-components";
-
+import { blue_color } from "../SharedStyledElementsStyles";
+import { purpleGradientColors } from "../SharedStyledElementsStyles";
+interface containerProps{
+  userType : string;
+}
 // This is the top most level container
-export const Container = styled.div`
+export const Container = styled.div<containerProps>`
   height: 120vh;
   width: 1309px;
   padding: 20px;
   position:relative;
-  background: linear-gradient(0deg, #113869, #cedff1);
   display: flex;
   justify-content: center;
   align-items: center;
+  ${(props) => props.userType === 'buyer' ? `background: linear-gradient(0deg, ${blue_color}, #cedff1);` : purpleGradientColors };
 `;
 // Styling for the form
 export const Form = styled.form`

@@ -1,10 +1,10 @@
-import { categoriesInfo } from "../../assets/data";
+import { categoriesInfo } from "../../../assets/data";
 import {
   Container,
   EachRow,
   Links,
   OptionsWrapper,
-} from "../Styling/NavbarStyles/SideMenuOptionsStyles";
+} from "../../Styling/NavbarStyles/SideMenuOptionsStyles";
 
 const SideMenuOptions = () => {
   return (

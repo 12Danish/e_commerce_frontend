@@ -3,10 +3,10 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 // Importing right arrow image from mui
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 // Importing data in JSON format
-import { topSliderInfo } from "../../assets/data";
+import { topSliderInfo } from "../../../assets/data";
 //Importing button from shared styled styled elements
-import { Arrow } from "../Styling/ArrowStyles/SliderArrowStyles";
-import { Button } from "../Styling/SharedStyledElementsStyles";
+import { Arrow } from "../../Styling/ArrowStyles/SliderArrowStyles";
+import { Button } from "../../Styling/SharedStyledElementsStyles";
 import {
   Slide1,
   Slide1Desc,
@@ -14,7 +14,7 @@ import {
   Slide1ImageWrapper,
   Slide1InfoWrapper,
   Slide1Title,
-} from "../Styling/TopSliderStyles/Slide1Styles";
+} from "../../Styling/TopSliderStyles/Slide1Styles";
 import {
   Slide2,
   Slide2ButtonWrapper,
@@ -22,7 +22,7 @@ import {
   Slide2ImageWrapper,
   Slide2Rectangle,
   Slide2Title,
-} from "../Styling/TopSliderStyles/Slide2Styles";
+} from "../../Styling/TopSliderStyles/Slide2Styles";
 import {
   Slide3,
   Slide3ButtonWrapper,
@@ -30,8 +30,8 @@ import {
   Slide3ImageWrapper,
   Slide3Title1,
   Slide3Title2,
-} from "../Styling/TopSliderStyles/Slide3Styles";
-import { Container, Wrapper } from "../Styling/TopSliderStyles/SliderStyles";
+} from "../../Styling/TopSliderStyles/Slide3Styles";
+import { Container, Wrapper } from "../../Styling/TopSliderStyles/SliderStyles";
 
 import useSlideMovement from "../SliderMovement";
 // This container is the top most level element

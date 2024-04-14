@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { cartItems } from "../../assets/data";
+import { cartItems } from "../../../assets/data";
 import {
   Container,
   Info,
@@ -10,8 +10,8 @@ import {
   SummaryPerLine,
   TitleWrapper,
   TopOptions,
-} from "../Styling/CartStyles/CartBodyStyles";
-import { Button, Title } from "../Styling/SharedStyledElementsStyles";
+} from "../../Styling/CartStyles/CartBodyStyles";
+import { Button, Title } from "../../Styling/SharedStyledElementsStyles";
 import CartProduct from "./CartProduct";
 
 const CartBody = () => {

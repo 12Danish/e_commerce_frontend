@@ -1,5 +1,5 @@
 // Importing this as the code is thr same
-import { BoldHeading } from "./Styling/SharedStyledElementsStyles";
+import { BoldHeading } from "../Styling/SharedStyledElementsStyles";
 //Importing facebook Icon
 import FacebookIcon from "@mui/icons-material/Facebook";
 //Importing Instgram icon
@@ -11,6 +11,7 @@ import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 //Importing mail Icon
 import MailIcon from "@mui/icons-material/Mail";
 import {
+  A,
   Center,
   ContactItem,
   Container,
@@ -22,8 +23,7 @@ import {
   SocialContainer,
   SocialIcon,
   Title,
-  A,
-} from "./Styling/FooterStyles";
+} from "../Styling/FooterStyles";
 
 const Footer = () => {
   return (

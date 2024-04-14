@@ -11,7 +11,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 // Getting the cancel Icon
 import CancelIcon from "@mui/icons-material/Cancel";
 //Importing the wrapper for icons
-import { BoldHeading, Icon } from "../Styling/SharedStyledElementsStyles";
+import { BoldHeading, Icon } from "../../Styling/SharedStyledElementsStyles";
 // importing the side menu
 import SideMenuOptions from "./SideMenuOptions";
 // Using useState
@@ -30,7 +30,7 @@ import {
   SideMenuHeadingWrapper,
   SideMenuWrapper,
   Wrapper,
-} from "../Styling/NavbarStyles/NavbarStyles";
+} from "../../Styling/NavbarStyles/NavbarStyles";
 // This is the top most level container for the navbar
 
 // This is the main functional component which is returned in the end

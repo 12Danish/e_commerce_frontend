@@ -1,11 +1,11 @@
-import Announcements from "../components/Announcements";
-import Navbar from "../components/Navbar_components/Navbar";
-import TopSlider from "../components/Top_Slider_components/TopSlider";
-import Slider1 from "../components/ProductSlider1_components/Slider1";
-import Footer from "../components/Footer";
-import Slider2 from "../components/ProductSlider2_components/Slider2";
-import SaleSlider from "../components/SaleSlider";
-import Categories from "../components/Categories_componenets/Categories";
+import Categories from "../components/Rendering/Categories_componenets/Categories";
+import Navbar from "../components/Rendering/Navbar_components/Navbar";
+import Slider1 from "../components/Rendering/ProductSlider1_components/Slider1";
+import Announcements from "../components/Rendering/Announcements";
+import Footer from "../components/Rendering/Footer";
+import Slider2 from "../components/Rendering/ProductSlider2_components/Slider2";
+import SaleSlider from "../components/Rendering/SaleSlider";
+import TopSlider from "../components/Rendering/Top_Slider_components/TopSlider";
 const HomePage = () => {
   return (
     <>

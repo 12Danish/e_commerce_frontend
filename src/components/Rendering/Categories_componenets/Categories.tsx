@@ -1,28 +1,23 @@
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
-import { categoriesInfo } from "../../assets/data";
-import useSlideMovement from "../SliderMovement";
-import { Arrow } from "../Styling/ArrowStyles/SliderArrowStyles";
-import { ViewAll } from "../Styling/ArrowStyles/ViewMoreStyles";
-import { bgColors } from "../Styling/ProductSlider1Styles/PrdouctSlider1ItemStyes";
+import { categoriesInfo } from "../../../assets/data";
+import { Arrow } from "../../Styling/ArrowStyles/SliderArrowStyles";
 import {
   ProductsContainer,
   SectionWrapper,
   Wrapper,
-} from "../Styling/ProductSlider1Styles/Slider1Styles";
-import { ProductSliderTitle } from "../Styling/SharedStyledElementsStyles";
-import CategoryItem from "./SliderItem1";
+} from "../../Styling/ProductSlider2Styles/Slider2Styles";
+import { ProductSliderTitle } from "../../Styling/SharedStyledElementsStyles";
+import useSlideMovement from "../SliderMovement";
+import CategoryItem from "./CategoryItem";
 
 // The main component which is returned
-const Slider1 = () => {
+const Categories = () => {
   const { sliderIndex, handleClick } = useSlideMovement();
 
-  const colorKeys = Object.keys(bgColors);
-  const numColors = colorKeys.length;
   return (
     <>
       <SectionWrapper>
-        <ProductSliderTitle>New Products</ProductSliderTitle>
+        <ProductSliderTitle>Categories</ProductSliderTitle>
         <ProductsContainer>
           {/* This component contains the left arrow and I need to remove hard coding here */}
           <Arrow direction="left" onClick={() => handleClick("left", 5)}>
@@ -36,18 +31,8 @@ const Slider1 = () => {
             {/* Getting Data from categoriesInfo and mapping it to individual items */}
             {categoriesInfo.map((item, index) => (
               // Calling the Categoryitem component to get the individual styled category items
-              <CategoryItem
-                item={item}
-                key={item.id}
-                color={bgColors[colorKeys[index % numColors]]}
-              />
+              <CategoryItem item={item} key={item.id} />
             ))}
-            <ViewAll position={{ right: -200, top: 25 }}>
-              View All
-              <KeyboardDoubleArrowRightIcon
-                style={{ backgroundColor: "transparent" }}
-              />
-            </ViewAll>
           </Wrapper>
           <Arrow direction="right" onClick={() => handleClick("right", 5)}>
             <ArrowForwardIos
@@ -60,4 +45,4 @@ const Slider1 = () => {
   );
 };
 
-export default Slider1;
+export default Categories;

@@ -1,14 +1,13 @@
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import DiscountIcon from "@mui/icons-material/Discount";
 import {
   Container,
-  Image,
   Cta,
-  Price,
-  ProductTitle,
   ImageWrapper,
   InfoWrapper,
-} from "../Styling/ProductSlider2Styles/PrdouctSlider2ItemStyes";
-import DiscountIcon from "@mui/icons-material/Discount";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+  Price,
+  ProductTitle,
+} from "../../Styling/ProductSlider1Styles/PrdouctSlider1ItemStyes";
 // Defining props for CategoryItem Component
 interface CategoryItemProps {
   item: {
@@ -16,14 +15,15 @@ interface CategoryItemProps {
     img: string;
     title: string;
   };
+  color: string;
 }
 
 // The main component that is returned
-const CategoryItem = ({ item }: CategoryItemProps) => {
+const CategoryItem = ({ item, color }: CategoryItemProps) => {
   return (
     <Container>
       {/* This wraps around the image */}
-      <ImageWrapper>
+      <ImageWrapper color={color}>
         {/* Displaying the image of the item in category */}
       </ImageWrapper>
       {/*This wraps around the all the information  */}
@@ -34,7 +34,9 @@ const CategoryItem = ({ item }: CategoryItemProps) => {
         </Price>
         <Cta>
           Shop Now
-          <ArrowForwardIcon style={{ color: "grey", backgroundColor : "transparent" }} />
+          <ArrowForwardIcon
+            style={{ color: "grey", backgroundColor: "transparent" }}
+          />
         </Cta>
       </InfoWrapper>
     </Container>
