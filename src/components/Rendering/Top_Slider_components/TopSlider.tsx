@@ -5,7 +5,9 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 // Importing data in JSON format
 import { topSliderInfo } from "../../../assets/data";
 //Importing button from shared styled styled elements
+import { Link, Outlet } from "react-router-dom";
 import { Arrow } from "../../Styling/ArrowStyles/SliderArrowStyles";
+import { linkStyle } from "../../Styling/LinkStyles";
 import { Button } from "../../Styling/SharedStyledElementsStyles";
 import {
   Slide1,
@@ -64,14 +66,16 @@ const TopSlider = () => {
 
                 <Slide1InfoWrapper>
                   <Slide1Desc>{item.desc}</Slide1Desc>
-                  <Button
-                    bgcolor="#113869"
-                    fontcolor="white"
-                    bordercolor="white"
-                    width="auto"
-                  >
-                    {item.button_name}
-                  </Button>
+                  <Link to="/product_list/category/Sneakers" style={linkStyle}>
+                    <Button
+                      bgcolor="#113869"
+                      fontcolor="white"
+                      bordercolor="white"
+                      width="auto"
+                    >
+                      {item.button_name}
+                    </Button>
+                  </Link>
                 </Slide1InfoWrapper>
               </Slide1>
             )) ||
@@ -86,14 +90,16 @@ const TopSlider = () => {
                 <Slide2Rectangle />
                 <Slide2Title>{item.title}</Slide2Title>
                 <Slide2ButtonWrapper>
-                  <Button
-                    bgcolor="black"
-                    fontcolor="#fdd835"
-                    bordercolor="white"
-                    width="auto"
-                  >
-                    {item.button_name}
-                  </Button>
+                  <Link to="/product_list" style={linkStyle}>
+                    <Button
+                      bgcolor="black"
+                      fontcolor="#fdd835"
+                      bordercolor="white"
+                      width="auto"
+                    >
+                      {item.button_name}
+                    </Button>
+                  </Link>
                 </Slide2ButtonWrapper>
               </Slide2>
             )) ||
@@ -107,14 +113,16 @@ const TopSlider = () => {
                 <Slide3Title2>{item.title2}</Slide3Title2>
                 {/* This wraps around all of the info*/}
                 <Slide3ButtonWrapper>
-                  <Button
-                    bgcolor="pink"
-                    fontcolor="black"
-                    bordercolor="white"
-                    width="auto"
-                  >
-                    {item.button_name}
-                  </Button>
+                  <Link to="/product_list/popular" style={linkStyle}>
+                    <Button
+                      bgcolor="pink"
+                      fontcolor="black"
+                      bordercolor="white"
+                      width="auto"
+                    >
+                      {item.button_name}
+                    </Button>
+                  </Link>
                 </Slide3ButtonWrapper>
               </Slide3>
             ))
@@ -126,6 +134,7 @@ const TopSlider = () => {
           sx={{ color: "#f8f8ff", fontSize: 30, bgcolor: "transparent" }}
         />
       </Arrow>
+      <Outlet />
     </Container>
   );
 };

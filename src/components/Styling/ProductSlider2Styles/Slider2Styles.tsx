@@ -22,6 +22,7 @@ interface WrapperProps {
 }
 // *** Presnt within the CONTAINER *** Wraps around all slides
 export const Wrapper = styled.div<WrapperProps>`
+  margin-top: 20px;
   height: 100%;
   background-color: transparent;
   display: flex;

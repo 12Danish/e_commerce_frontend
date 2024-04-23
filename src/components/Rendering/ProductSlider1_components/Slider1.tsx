@@ -1,6 +1,5 @@
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
-import { categoriesInfo } from "../../../assets/data";
 import { Arrow } from "../../Styling/ArrowStyles/SliderArrowStyles";
 import { ViewAll } from "../../Styling/ArrowStyles/ViewMoreStyles";
 import { bgColors } from "../../Styling/ProductSlider1Styles/PrdouctSlider1ItemStyes";
@@ -11,14 +10,22 @@ import {
 } from "../../Styling/ProductSlider1Styles/Slider1Styles";
 import { ProductSliderTitle } from "../../Styling/SharedStyledElementsStyles";
 import useSlideMovement from "../SliderMovement";
-import CategoryItem from "./SliderItem1";
+import SliderItem from "./SliderItem1";
 
+import { useEffect, useState } from "react";
+import { getProductList } from "../../ApiService/BuyerProductListAPI";
+import { Link, Outlet } from "react-router-dom";
+import { linkStyle } from "../../Styling/LinkStyles";
 // The main component which is returned
 const Slider1 = () => {
   const { sliderIndex, handleClick } = useSlideMovement();
-
   const colorKeys = Object.keys(bgColors);
   const numColors = colorKeys.length;
+  const [latestItems, setLatestItems] = useState([]);
+
+  useEffect(() => {
+    fetchData(setLatestItems, null);
+  }, []);
   return (
     <>
       <SectionWrapper>
@@ -34,20 +41,23 @@ const Slider1 = () => {
           {/* This component wraps around all the categories  */}
           <Wrapper slideindex={sliderIndex}>
             {/* Getting Data from categoriesInfo and mapping it to individual items */}
-            {categoriesInfo.map((item, index) => (
+            {latestItems.slice(0, 8).map((item, index) => (
               // Calling the Categoryitem component to get the individual styled category items
-              <CategoryItem
+              <SliderItem
                 item={item}
                 key={item.id}
                 color={bgColors[colorKeys[index % numColors]]}
               />
             ))}
+          
+          <Link to="/product_list" style={linkStyle}>
             <ViewAll position={{ right: -200, top: 25 }}>
               View All
               <KeyboardDoubleArrowRightIcon
                 style={{ backgroundColor: "transparent" }}
               />
             </ViewAll>
+            </Link>
           </Wrapper>
           <Arrow direction="right" onClick={() => handleClick("right", 5)}>
             <ArrowForwardIos
@@ -55,9 +65,22 @@ const Slider1 = () => {
             />
           </Arrow>
         </ProductsContainer>
+        <Outlet />
       </SectionWrapper>
     </>
   );
+};
+
+export const fetchData = async (
+  setItems: React.Dispatch<React.SetStateAction<never[]>>,
+  type : String | null
+) => {
+  try {
+    const data = await getProductList(type);
+    setItems(data);
+  } catch (error) {
+    console.error("Error fetching product list:", error);
+  }
 };
 
 export default Slider1;

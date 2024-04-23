@@ -1,10 +1,13 @@
 import { categoriesInfo } from "../../../assets/data";
+import { linkStyle } from "../../Styling/LinkStyles";
+
 import {
   Container,
   EachRow,
-  Links,
+  LinksWrapper,
   OptionsWrapper,
 } from "../../Styling/NavbarStyles/SideMenuOptionsStyles";
+import { Outlet,Link } from "react-router-dom";
 
 const SideMenuOptions = () => {
   return (
@@ -17,6 +20,7 @@ const SideMenuOptions = () => {
           ></EachRowOptions>
         ))}
       </OptionsWrapper>
+      <Outlet />
     </Container>
   );
 };
@@ -27,9 +31,11 @@ interface EachRowOptionsProps {
 }
 const EachRowOptions = ({ categoryName }: EachRowOptionsProps) => {
   return (
-    <Links>
+    <LinksWrapper>
+    <Link to={`/product_list/category/${categoryName}`} style={linkStyle}>
       <EachRow>{categoryName}</EachRow>
-    </Links>
+      </Link>
+    </LinksWrapper>
   );
 };
 

@@ -4,32 +4,33 @@ import {
   Container,
   Cta,
   ImageWrapper,
+  Image,
   InfoWrapper,
   Price,
   ProductTitle,
 } from "../../Styling/ProductSlider2Styles/PrdouctSlider2ItemStyes";
 // Defining props for CategoryItem Component
-interface CategoryItemProps {
-  item: {
-    id: number;
-    img: string;
-    title: string;
-  };
-}
+import {
+  SliderItemProps,
+  convertAbsolutePath,
+} from "../ProductSlider1_components/SliderItem1";
 
 // The main component that is returned
-const CategoryItem = ({ item }: CategoryItemProps) => {
+const CategoryItem = ({ item }: SliderItemProps) => {
+  const relativeImagePath = convertAbsolutePath(item.image);
   return (
     <Container>
       {/* This wraps around the image */}
       <ImageWrapper>
         {/* Displaying the image of the item in category */}
+        {item.image && <Image src={relativeImagePath} alt="image" />}
       </ImageWrapper>
-      {/*This wraps around the all the information  */}
+      {/* This wraps around all the information */}
       <InfoWrapper>
         <ProductTitle>{item.title}</ProductTitle>
-        <Price isSale={true}>
-          Rs: 5000 {true && <DiscountIcon style={{ fontSize: "small" }} />}
+        <Price isSale={item.sale_item}>
+          {item.sale_item ? item.sale_price : item.price}{" "}
+          {item.sale_item && <DiscountIcon style={{ fontSize: "small" }} />} Rs
         </Price>
         <Cta>
           Shop Now

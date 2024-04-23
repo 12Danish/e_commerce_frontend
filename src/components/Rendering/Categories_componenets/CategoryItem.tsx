@@ -7,6 +7,8 @@ import {
   InfoWrapper,
   ProductTitle,
 } from "../../Styling/ProductSlider2Styles/PrdouctSlider2ItemStyes";
+import { linkStyle } from "../../Styling/LinkStyles";
+import { Link,Outlet } from "react-router-dom";
 // Defining props for CategoryItem Component
 interface CategoryItemProps {
   item: {
@@ -20,6 +22,7 @@ interface CategoryItemProps {
 const CategoryItem = ({ item }: CategoryItemProps) => {
   return (
     <Container>
+      <Link to={`/product_list/category/${item.title}`} style={linkStyle}>
       {/* This wraps around the image */}
       <ImageWrapper>
         {/* Displaying the image of the item in category */}
@@ -35,6 +38,8 @@ const CategoryItem = ({ item }: CategoryItemProps) => {
           />
         </Cta>
       </InfoWrapper>
+      </Link>
+      <Outlet />
     </Container>
   );
 };

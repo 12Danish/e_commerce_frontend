@@ -1,4 +1,4 @@
-import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
+import { ArrowBackIos, ArrowForwardIos, Link } from "@mui/icons-material";
 import { categoriesInfo } from "../../../assets/data";
 import { Arrow } from "../../Styling/ArrowStyles/SliderArrowStyles";
 import {
@@ -9,6 +9,7 @@ import {
 import { ProductSliderTitle } from "../../Styling/SharedStyledElementsStyles";
 import useSlideMovement from "../SliderMovement";
 import CategoryItem from "./CategoryItem";
+
 
 // The main component which is returned
 const Categories = () => {
@@ -31,7 +32,9 @@ const Categories = () => {
             {/* Getting Data from categoriesInfo and mapping it to individual items */}
             {categoriesInfo.map((item, index) => (
               // Calling the Categoryitem component to get the individual styled category items
+              
               <CategoryItem item={item} key={item.id} />
+              
             ))}
           </Wrapper>
           <Arrow direction="right" onClick={() => handleClick("right", 5)}>

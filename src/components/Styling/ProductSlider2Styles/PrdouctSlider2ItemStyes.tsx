@@ -35,9 +35,10 @@ export const ImageWrapper = styled.div`
 `;
 // Defining the properties for the image
 export const Image = styled.img`
-  height: 100%;
+  height: auto;
+  background-color: transparent;
   overflow: hidden;
-  width: 70%;
+  width: auto;
   object-fit: cover;
 `;
 // This will wrap all the description contents
@@ -64,9 +65,11 @@ interface priceProp {
 }
 export const Price = styled.div<priceProp>`
   font-style: italic;
+  background-color: transparent;
   color: ${(prop) => (prop.isSale ? "red" : "black")};
   display: flex;
 `;
 export const Cta = styled.div`
+  background-color: transparent;
   display: flex;
 `;

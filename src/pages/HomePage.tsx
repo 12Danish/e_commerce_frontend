@@ -6,6 +6,7 @@ import Footer from "../components/Rendering/Footer";
 import Slider2 from "../components/Rendering/ProductSlider2_components/Slider2";
 import SaleSlider from "../components/Rendering/SaleSlider";
 import TopSlider from "../components/Rendering/Top_Slider_components/TopSlider";
+import { getProductList } from "../components/ApiService/BuyerProductListAPI";
 const HomePage = () => {
   return (
     <>

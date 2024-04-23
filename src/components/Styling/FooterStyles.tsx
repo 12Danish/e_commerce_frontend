@@ -81,9 +81,10 @@ export const ListItem = styled.li`
   font-size: 23px;
 `;
 
-export const A = styled.a`
+export const LinkName = styled.div`
   background-color: transparent;
   color: white;
+  cursor: pointer;
 `;
 // This wraps around all elements on the right
 export const Right = styled.div`

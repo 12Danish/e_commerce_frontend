@@ -36,6 +36,7 @@ export const Image = styled.img`
   height: 100%;
   overflow: hidden;
   width: 100%;
+  background: transparent;
   object-fit: cover;
 `;
 // This will wrap all the description contents

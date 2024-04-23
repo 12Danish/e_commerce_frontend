@@ -10,13 +10,14 @@ import MapIcon from "@mui/icons-material/Map";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 //Importing mail Icon
 import MailIcon from "@mui/icons-material/Mail";
+import { Link } from "react-router-dom";
 import {
-  A,
   Center,
   ContactItem,
   Container,
   Description,
   Left,
+  LinkName,
   List,
   ListItem,
   Right,
@@ -24,6 +25,7 @@ import {
   SocialIcon,
   Title,
 } from "../Styling/FooterStyles";
+import { linkStyle } from "../Styling/LinkStyles";
 
 const Footer = () => {
   return (
@@ -59,19 +61,29 @@ const Footer = () => {
         <Title>Useful Links</Title>
         <List>
           <ListItem>
-            <A>Home</A>
+            <Link to="/" style={linkStyle}>
+              <LinkName>Home</LinkName>
+            </Link>
           </ListItem>
           <ListItem>
-            <A>Sale Products</A>
+            <Link to="/product_list/sale" style={linkStyle}>
+              <LinkName>Sale Products</LinkName>
+            </Link>
           </ListItem>
           <ListItem>
-            <A>Cart</A>
+            <Link to="/cart" style={linkStyle}>
+              <LinkName>Cart</LinkName>
+            </Link>
           </ListItem>
           <ListItem>
-            <A>Latest Products</A>
+            <Link to="/product_list" style={linkStyle}>
+              <LinkName>Latest Products</LinkName>
+            </Link>
           </ListItem>
           <ListItem>
-            <A>Become a Seller</A>
+            <Link to="/register" style={linkStyle}>
+              <LinkName>Become a Seller</LinkName>
+            </Link>
           </ListItem>
         </List>
       </Center>

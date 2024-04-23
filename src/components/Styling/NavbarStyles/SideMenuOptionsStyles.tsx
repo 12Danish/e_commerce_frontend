@@ -36,6 +36,6 @@ export const EachRow = styled.div`
   }
 `;
 // Styling for each link
-export const Links = styled.a`
+export const LinksWrapper = styled.div`
   cursor: pointer;
 `;
