@@ -35,7 +35,13 @@ export const Header = styled.div`
 `;
 // Wraps around the pagination
 export const PaginationWrapper = styled.div`
+margin-top: 10px;
+  height: 50px;
+  width: 220px;
+  left: 50%; /* Adjust as needed for horizontal positioning */
+  transform: translate(-50%, -50%); /* Center the element precisely */
   display: flex;
+  position: relative;
   align-items: center;
   justify-content: center;
 `;

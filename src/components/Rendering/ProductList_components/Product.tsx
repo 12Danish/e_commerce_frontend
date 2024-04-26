@@ -9,28 +9,21 @@ import {
 } from "../../Styling/ProductListStyles/ProductStyles";
 import { Icon } from "../../Styling/SharedStyledElementsStyles";
 // These are the arguments this component accepts in order to dynamically render the data given to it
-interface ProductProps {
-  product: {
-    id: number;
-    img: string;
-    title: string;
-    price: number;
-  };
-}
+import { ListItemProps } from "../SharedElements";
 
 // This is the main component which is returned
-const Product = ({ product }: ProductProps) => {
+const Product = ({item}: ListItemProps)  => {
   return (
     <Container>
       {/*Displaying the Circle over here  */}
       <Circle />
       {/*Linking the image */}
-      <Image src={product.img} />
+      <Image src={item.image} />
       <InfoWrapper>
         {/* Adding the title */}
-        <Info>{product.title}</Info>
+        <Info>{item.title}</Info>
         {/* Adding the price */}
-        <Info>{product.price}RS</Info>
+        <Info>{item.price}RS</Info>
       </InfoWrapper>
       <IconWrapper>
         {/* Adding icon */}

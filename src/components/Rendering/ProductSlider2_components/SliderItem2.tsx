@@ -3,20 +3,18 @@ import DiscountIcon from "@mui/icons-material/Discount";
 import {
   Container,
   Cta,
-  ImageWrapper,
   Image,
+  ImageWrapper,
   InfoWrapper,
   Price,
   ProductTitle,
 } from "../../Styling/ProductSlider2Styles/PrdouctSlider2ItemStyes";
 // Defining props for CategoryItem Component
-import {
-  SliderItemProps,
-  convertAbsolutePath,
-} from "../ProductSlider1_components/SliderItem1";
+import { convertAbsolutePath } from "../ProductSlider1_components/SliderItem1";
+import { ListItemProps } from "../SharedElements";
 
 // The main component that is returned
-const CategoryItem = ({ item }: SliderItemProps) => {
+const CategoryItem = ({ item }: ListItemProps) => {
   const relativeImagePath = convertAbsolutePath(item.image);
   return (
     <Container>

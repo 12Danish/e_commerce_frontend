@@ -1,7 +1,10 @@
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import KeyboardDoubleArrowRightIcon from "@mui/icons-material/KeyboardDoubleArrowRight";
+import { useEffect, useState } from "react";
+import { Link, Outlet } from "react-router-dom";
 import { Arrow } from "../../Styling/ArrowStyles/SliderArrowStyles";
 import { ViewAll } from "../../Styling/ArrowStyles/ViewMoreStyles";
+import { linkStyle } from "../../Styling/LinkStyles";
 import {
   ProductsContainer,
   SectionWrapper,
@@ -9,11 +12,8 @@ import {
 } from "../../Styling/ProductSlider2Styles/Slider2Styles";
 import { ProductSliderTitle } from "../../Styling/SharedStyledElementsStyles";
 import useSlideMovement from "../SliderMovement";
-import { useEffect, useState } from "react";
-import { fetchData } from "../ProductSlider1_components/Slider1";
 import SliderItem2 from "./SliderItem2";
-import { Link, Outlet } from "react-router-dom";
-import { linkStyle } from "../../Styling/LinkStyles";
+import { getProductList } from "../../ApiService/BuyerProductListAPI";
 
 // The main component which is returned
 const Slider2 = () => {
@@ -21,7 +21,16 @@ const Slider2 = () => {
   const [popularItems, setPopularItems] = useState([]);
 
   useEffect(() => {
-    fetchData(setPopularItems, 'popular');
+    const fetchData = async (
+    ) => {
+      try {
+        const data = await getProductList("popular");
+        setPopularItems(data);
+      } catch (error) {
+        console.error("Error fetching product list:", error);
+      }
+    };
+    fetchData();
   }, []);
 
   return (
@@ -41,19 +50,15 @@ const Slider2 = () => {
             {/* Getting Data from categoriesInfo and mapping it to individual items */}
             {popularItems.slice(0, 8).map((item, index) => (
               // Calling the Categoryitem component to get the individual styled category items
-              <SliderItem2
-                item={item}
-                key={item.id}
-              
-              />
+              <SliderItem2 item={item} key={item.id} />
             ))}
-             <Link to="/product_list/popular" style={linkStyle}>
-            <ViewAll position={{ right: -200, top: 110 }}>
-              View All
-              <KeyboardDoubleArrowRightIcon
-                style={{ backgroundColor: "transparent" }}
-              />
-            </ViewAll>
+            <Link to="/product_list/popular" style={linkStyle}>
+              <ViewAll position={{ right: -200, top: 110 }}>
+                View All
+                <KeyboardDoubleArrowRightIcon
+                  style={{ backgroundColor: "transparent" }}
+                />
+              </ViewAll>
             </Link>
           </Wrapper>
           <Arrow direction="right" onClick={() => handleClick("right", 6)}>
@@ -62,7 +67,7 @@ const Slider2 = () => {
             />
           </Arrow>
         </ProductsContainer>
-        <Outlet/>
+        <Outlet />
       </SectionWrapper>
     </>
   );

@@ -13,18 +13,29 @@ import useSlideMovement from "../SliderMovement";
 import SliderItem from "./SliderItem1";
 
 import { useEffect, useState } from "react";
-import { getProductList } from "../../ApiService/BuyerProductListAPI";
 import { Link, Outlet } from "react-router-dom";
+
 import { linkStyle } from "../../Styling/LinkStyles";
+import { getProductList } from "../../ApiService/BuyerProductListAPI";
 // The main component which is returned
-const Slider1 = () => {
+
+export const Slider1 = () => {
   const { sliderIndex, handleClick } = useSlideMovement();
   const colorKeys = Object.keys(bgColors);
   const numColors = colorKeys.length;
   const [latestItems, setLatestItems] = useState([]);
 
   useEffect(() => {
-    fetchData(setLatestItems, null);
+    const fetchData = async () => {
+      try {
+        const data = await getProductList();
+        setLatestItems(data);
+      } catch (error) {
+        console.error("Error fetching product list:", error);
+      }
+    };
+
+    fetchData();
   }, []);
   return (
     <>
@@ -49,14 +60,14 @@ const Slider1 = () => {
                 color={bgColors[colorKeys[index % numColors]]}
               />
             ))}
-          
-          <Link to="/product_list" style={linkStyle}>
-            <ViewAll position={{ right: -200, top: 25 }}>
-              View All
-              <KeyboardDoubleArrowRightIcon
-                style={{ backgroundColor: "transparent" }}
-              />
-            </ViewAll>
+
+            <Link to="/product_list" style={linkStyle}>
+              <ViewAll position={{ right: -200, top: 25 }}>
+                View All
+                <KeyboardDoubleArrowRightIcon
+                  style={{ backgroundColor: "transparent" }}
+                />
+              </ViewAll>
             </Link>
           </Wrapper>
           <Arrow direction="right" onClick={() => handleClick("right", 5)}>
@@ -69,18 +80,6 @@ const Slider1 = () => {
       </SectionWrapper>
     </>
   );
-};
-
-export const fetchData = async (
-  setItems: React.Dispatch<React.SetStateAction<never[]>>,
-  type : String | null
-) => {
-  try {
-    const data = await getProductList(type);
-    setItems(data);
-  } catch (error) {
-    console.error("Error fetching product list:", error);
-  }
 };
 
 export default Slider1;
