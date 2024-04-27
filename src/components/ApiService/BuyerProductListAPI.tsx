@@ -10,6 +10,7 @@ export async function getProductList(
     let response;
     // By default, fetch the latest products only if type is not specified
     if (link) {
+      console.log(link);
       response = await axios.get(link);
       multiplePages = true;
     } else if (type == null) {
@@ -20,7 +21,8 @@ export async function getProductList(
     } else if (type.toLowerCase() == "category") {
       response = await axios.get(
         `http://127.0.0.1:8000/api/?category=${typeName}`
-      );
+      )
+      console.log(typeName);
     } else if (type.toLowerCase() == "search") {
       response = await axios.get(
         `http://127.0.0.1:8000/api/?search=${typeName}`

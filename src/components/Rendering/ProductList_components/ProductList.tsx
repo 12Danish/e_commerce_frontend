@@ -49,6 +49,9 @@ const ProductList = ({ type, typeName }: ProductListProps) => {
     const fetchData = async () => {
       try {
         const resp = await getProductList(type, typeName, true, pageLink);
+        console.log(type)
+        console.log(typeName)
+        console.log(resp)
         setItems(resp.data);
         dispatch({ type: "SET_NEXT_URL", payload: resp.next });
         dispatch({ type: "SET_PREVIOUS_URL", payload: resp.previous }); 
@@ -58,7 +61,12 @@ const ProductList = ({ type, typeName }: ProductListProps) => {
     };
 
     fetchData();
-  }, [pageLink]);
+   
+  }, [pageLink, type,typeName]);
+
+  useEffect(() => {
+    setPageLink(null);
+  }, [type, typeName]);
 
   return (
     <Container>
