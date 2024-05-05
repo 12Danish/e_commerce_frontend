@@ -28,6 +28,7 @@ interface BoldHeadingProps {
 // Exporting this as I am using this within the footer and navbar
 export const BoldHeading = styled.h1<BoldHeadingProps>`
   font-weight: bold;
+  
   font-size: 35px;
   color: ${(props) => props.fontcolor};
   background-color: ${(props) => props.backgroundColor};

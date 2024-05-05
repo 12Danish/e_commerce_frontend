@@ -1,19 +1,17 @@
 
-import { productsInfo } from "../../../assets/data";
 import {
   AllProductsContainer,
   Container,
   Header,
   PaginationWrapper,
+  Message
 } from "../../Styling/ProductListStyles/ProductList";
-import { Title } from "../../Styling/SharedStyledElementsStyles";
+
 import FilterContainer from "./FilterContainer";
 import Product from "./Product";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { linkStyle } from "../../Styling/LinkStyles";
-import { Link, Outlet } from "react-router-dom";
-import { useState, useEffect, useReducer } from "react";
+import { useState, useEffect, useReducer, createContext } from "react";
 import { getProductList } from "../../ApiService/BuyerProductListAPI";
 import { Arrow } from "../../Styling/ArrowStyles/SliderArrowStyles";
 
@@ -32,6 +30,17 @@ interface State {
   previous_url: string | null;
 }
 
+interface PageLinkContextProps{
+  pageLink: string | null;
+  setPageLink: React.Dispatch<React.SetStateAction<string | null>>;
+}
+
+export const PageLinkContext = createContext<PageLinkContextProps>({
+  // Provide a default value
+  pageLink: null,
+  setPageLink: () => {},
+});
+
 
 // This is the main componet which is returned
 const ProductList = ({ type, typeName }: ProductListProps) => {
@@ -49,10 +58,9 @@ const ProductList = ({ type, typeName }: ProductListProps) => {
     const fetchData = async () => {
       try {
         const resp = await getProductList(type, typeName, true, pageLink);
-        console.log(type)
-        console.log(typeName)
-        console.log(resp)
+        setPageLink(resp.link);
         setItems(resp.data);
+        console.log(resp);
         dispatch({ type: "SET_NEXT_URL", payload: resp.next });
         dispatch({ type: "SET_PREVIOUS_URL", payload: resp.previous }); 
       } catch (error) {
@@ -69,14 +77,16 @@ const ProductList = ({ type, typeName }: ProductListProps) => {
   }, [type, typeName]);
 
   return (
+    <PageLinkContext.Provider value={{ pageLink, setPageLink }}>
     <Container>
       {/*Importing the header from ProductList.tsx and using it to display the banner */}
       <Header>{decideHeader(type, typeName)}</Header>
-      {/*Displaying the products if they exist else giving a message */}
-      {productsInfo.length > 0 ? (
-        <>
           {/* This wil display the filter options */}
           <FilterContainer />
+      {/*Displaying the products if they exist else giving a message */}
+      <br/>
+      {items.length > 0 ? (
+        <>
           {/* This componet has all the products */}
           <AllProductsContainer>
             {items.map((item) => (
@@ -104,10 +114,11 @@ const ProductList = ({ type, typeName }: ProductListProps) => {
           
         </>
       ) : (
-        <Title>There are no products of this category to show</Title>
+        <Message>There are no products of this category to show</Message>
       )}
-      <Outlet />
+  
     </Container>
+    </PageLinkContext.Provider>
   );
 };
 

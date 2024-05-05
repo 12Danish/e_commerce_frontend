@@ -4,8 +4,8 @@ import styled from "styled-components";
 import { blue_color } from "../SharedStyledElementsStyles";
 
 export const Container = styled.div`
-  height: 60px;
-  overflow: hidden;
+  max-height: 60px;
+  overflow: visible;
   background-color: ${blue_color};
 
   @media only screen and (max-width: 480px) {
@@ -35,6 +35,8 @@ export const Left = styled.div`
 export const SearchContainer = styled.div`
   border: 2px solid #191970;
   display: flex;
+  position: relative;
+  flex-direction: column;
   flex: 0.8;
   border-radius: 8px;
   align-items: center;
@@ -45,6 +47,14 @@ export const SearchContainer = styled.div`
     margin: 0px 0px 20px 0px;
   }
 `;
+
+export const SearchFieldWrapper = styled.div`
+  display: flex;
+  width: 99%;
+  align-items: center;
+  padding: 3px;
+  
+`;
 // *** This is placed inside the SEARCH_CONTAINER component*** This specifies the properties of the input field
 export const InputField = styled.input`
   border: none;
@@ -52,14 +62,14 @@ export const InputField = styled.input`
 `;
 // This property will have a role in moving the menu in and out of view
 interface SideMenuWrapperProps {
-  xposition: number;
+  xPosition: number;
 }
 // This is the wrapper for the side menu
 export const SideMenuWrapper = styled.div<SideMenuWrapperProps>`
   top: 0;
   bottom: 0;
   left: ${(props) =>
-    props.xposition *
+    props.xPosition *
     -101}px; // The sense for this is that at -300 it is outside view and  at 0 it is properly inside
   position: relative;
   border: 2px solid darkblue;
@@ -74,12 +84,15 @@ export const SideMenuWrapper = styled.div<SideMenuWrapperProps>`
 export const CrossWrapper = styled.div`
   position: absolute;
   top: 0;
+  background-color: transparent;
   right: 0;
 `;
 
 // *** Placed inside WRAPPER component ***  Wrapping the elements in the center under this div element container and specifying its styling
 export const Center = styled.div`
   flex: 1;
+  overflow:hidden;
+  max-height: 50px;
   text-align: center;
   background-color: transparent;
 `;

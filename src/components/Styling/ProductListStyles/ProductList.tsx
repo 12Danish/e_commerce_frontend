@@ -45,3 +45,10 @@ margin-top: 10px;
   align-items: center;
   justify-content: center;
 `;
+export const Message = styled.div`
+  text-align: center;
+  margin-top: 20px;
+  font-size: 30px;
+  font-weight : 200;
+  width: 100%;
+`;
