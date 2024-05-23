@@ -1,19 +1,24 @@
-
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import LinearProgress from "@mui/material/LinearProgress";
+import React, {
+  createContext,
+  useEffect,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
+import { getProductList } from "../../ApiService/BuyerProductListAPI";
+import { Arrow } from "../../Styling/ArrowStyles/SliderArrowStyles";
 import {
   AllProductsContainer,
   Container,
   Header,
+  Message,
   PaginationWrapper,
-  Message
 } from "../../Styling/ProductListStyles/ProductList";
-
 import FilterContainer from "./FilterContainer";
 import Product from "./Product";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { useState, useEffect, useReducer, createContext } from "react";
-import { getProductList } from "../../ApiService/BuyerProductListAPI";
-import { Arrow } from "../../Styling/ArrowStyles/SliderArrowStyles";
 
 interface ProductListProps {
   type?: string | null;
@@ -30,23 +35,30 @@ interface State {
   previous_url: string | null;
 }
 
-interface PageLinkContextProps{
+interface PageLinkContextProps {
   pageLink: string | null;
   setPageLink: React.Dispatch<React.SetStateAction<string | null>>;
+  linkReRender: boolean;
+  setLinkReRender: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const PageLinkContext = createContext<PageLinkContextProps>({
   // Provide a default value
   pageLink: null,
   setPageLink: () => {},
+  linkReRender: false,
+  setLinkReRender: () => {},
 });
-
 
 // This is the main componet which is returned
 const ProductList = ({ type, typeName }: ProductListProps) => {
   const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false); // Add loading state
   // The link which is sent to the getProductList  function to handle pagination
   const [pageLink, setPageLink] = useState<string | null>(null);
+
+  // This is a toggle which helps in deciding when to re render
+  const [linkReRender, setLinkReRender] = useState(false);
   // The reducer hook over here is handling the next and previous urls for the pagination links
   const [state, dispatch] = useReducer(reducer, {
     next_url: null,
@@ -57,67 +69,94 @@ const ProductList = ({ type, typeName }: ProductListProps) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     const fetchData = async () => {
       try {
+        console.log("THIS IS PAGELINK  " + pageLink);
+        console.log("THIS IS TYPE " + type);
+        console.log("THIS IS TYPENAME " + typeName);
+        setLoading(true);
         const resp = await getProductList(type, typeName, true, pageLink);
         setPageLink(resp.link);
         setItems(resp.data);
         console.log(resp);
         dispatch({ type: "SET_NEXT_URL", payload: resp.next });
-        dispatch({ type: "SET_PREVIOUS_URL", payload: resp.previous }); 
+        dispatch({ type: "SET_PREVIOUS_URL", payload: resp.previous });
       } catch (error) {
         console.error("Error fetching product list:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchData();
-   
-  }, [pageLink, type,typeName]);
-
+  }, [linkReRender]);
   useEffect(() => {
     setPageLink(null);
+    setLinkReRender(!linkReRender);
+    console.log("Page Link has been set to null.");
   }, [type, typeName]);
-
   return (
-    <PageLinkContext.Provider value={{ pageLink, setPageLink }}>
-    <Container>
-      {/*Importing the header from ProductList.tsx and using it to display the banner */}
-      <Header>{decideHeader(type, typeName)}</Header>
-          {/* This wil display the filter options */}
-          <FilterContainer />
-      {/*Displaying the products if they exist else giving a message */}
-      <br/>
-      {items.length > 0 ? (
-        <>
-          {/* This componet has all the products */}
-          <AllProductsContainer>
-            {items.map((item) => (
-              <Product item={item} key={item.id} />
-            ))}
-          </AllProductsContainer>
-          {/* This componet wraps around pagination row */}
-          
+    <PageLinkContext.Provider
+      value={{ pageLink, setPageLink, setLinkReRender, linkReRender }}
+    >
+      <Container>
+        {/* Importing the header from ProductList.tsx and using it to display the banner */}
+        <Header>{decideHeader(type, typeName)}</Header>
+        {/* This will display the filter options */}
+        <FilterContainer />
+        {/* Displaying the products, pagination, or message */}
+        <br />
+        {loading ? (
+          <LinearProgress />
+        ) : items.length > 0 ? (
+          <>
+            {/* This component has all the products */}
+            <AllProductsContainer>
+              {items.map((item) => (
+                <Product item={item} key={item.id} />
+              ))}
+            </AllProductsContainer>
 
-          <PaginationWrapper>
-          {  state.previous_url &&
-          <Arrow direction="left" onClick={()=>{setPageLink(state.previous_url)}}>
-        {/* This is being imported from mui */}
-        <ArrowBackIosIcon
-          sx={{ color: "#f8f8ff", fontSize: 30, bgcolor: "transparent" }}
-        />
-      </Arrow>
-}
-      {state.next_url && <Arrow direction="right" onClick={()=>{setPageLink(state.next_url)}} >
-            <ArrowForwardIosIcon
-              sx={{ color: "#f8f8ff", fontSize: 30, bgcolor: "transparent" }}
-            />
-          </Arrow>}
-          </PaginationWrapper>
-          
-        </>
-      ) : (
-        <Message>There are no products of this category to show</Message>
-      )}
-  
-    </Container>
+            {/* Pagination */}
+            <PaginationWrapper>
+              {state.previous_url && (
+                <Arrow
+                  direction="left"
+                  onClick={() => {
+                    setPageLink(state.previous_url);
+                    setLinkReRender(!linkReRender);
+                  }}
+                >
+                  <ArrowBackIosIcon
+                    sx={{
+                      color: "#f8f8ff",
+                      fontSize: 30,
+                      bgcolor: "transparent",
+                    }}
+                  />
+                </Arrow>
+              )}
+              {state.next_url && (
+                <Arrow
+                  direction="right"
+                  onClick={() => {
+                    setPageLink(state.next_url);
+                    setLinkReRender(!linkReRender);
+                  }}
+                >
+                  <ArrowForwardIosIcon
+                    sx={{
+                      color: "#f8f8ff",
+                      fontSize: 30,
+                      bgcolor: "transparent",
+                    }}
+                  />
+                </Arrow>
+              )}
+            </PaginationWrapper>
+          </>
+        ) : (
+          <Message>There are no products of this category to show</Message>
+        )}
+      </Container>
     </PageLinkContext.Provider>
   );
 };

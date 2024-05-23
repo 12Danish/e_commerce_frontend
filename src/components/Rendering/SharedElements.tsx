@@ -30,8 +30,6 @@ export const convertAbsolutePath = (absolutePath: string) => {
   // Assuming your absolute path starts with '/mnt/c/Users/Sheryar/PycharmProjects/construction_site/e_com_frontend/src/'
   const basePath =
     "/mnt/c/users/sheryar/pycharmprojects/construction_site/e_com_frontend";
-  console.log(absolutePath);
-  console.log(absolutePath.replace(basePath, ""));
   return absolutePath.replace(basePath, ""); // Replace the base path with an empty string
 };
 

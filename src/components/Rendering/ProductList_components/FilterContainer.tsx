@@ -16,7 +16,7 @@ interface FilterParams {
 
 const FilterContainer = () => {
   // Getting the page Link from the context provided by the parent
-  const { pageLink, setPageLink } = useContext(PageLinkContext);
+  const { pageLink, setPageLink, setLinkReRender,linkReRender } = useContext(PageLinkContext);
 
   // This  function handles generating the correct the url for performing filtration
   const generateFilterLink = ({ filter_details }: FilterParams) => {
@@ -46,10 +46,19 @@ const FilterContainer = () => {
     } else if (baseUrl && baseUrl != pageLink) {
       setPageLink(baseUrl);
     }
+    
+    setLinkReRender(!linkReRender);
   };
+  const generateSortLink = () =>{
 
+  }
+  
   const handleFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     generateFilterLink({ filter_details: e.target.value });
+  };
+
+  const handleSort = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    generateSortLink({ sort_details: e.target.value });
   };
 
   return (
@@ -72,7 +81,7 @@ const FilterContainer = () => {
         <FilterText>Sort Products</FilterText>
         <Select>
           <Option>None</Option>
-          <Option>Price High to Low</Option>
+          <Option value="price">Price High to Low</Option>
           <Option>Price Low to High</Option>
           <Option>Date Published</Option>
         </Select>
